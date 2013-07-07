@@ -1,0 +1,18 @@
+# for have colors
+autoload -U colors
+colors
+# define your colors here
+host_color="white"
+path_color="blue"
+date_color="green"
+end_color="white"
+# Format
+date_format="%Hh%M"
+
+date="%B%{$fg[$date_color]%}(%D{$date_format})"
+host="%b%{$fg[$host_color]%}%n@%m"
+cpath="%B%{$fg[$path_color]%}%1d/"
+end="%b%{$fg[$end_color]%}$ %{$reset_color%}"
+
+PS1="$date $host $cpath$end"
+

@@ -1,0 +1,210 @@
+!
+! ~/.Xdefaults
+!
+
+! Xcursor --------------------------------------------------------------------
+
+!Xcursor*theme: insertthemehere
+!Xcursor*size:  10
+
+! Urxvt --------------------------------------------------------------------
+
+urxvt*depth: 32
+urxvt*background: rgba:0000/0000/0200/ffff
+
+URxvt*geometry: 95x30
+urxvt.foreground: #ffffff
+urxvt.font: xft:Dejavu Sans Mono:pixelsize=13:antialias=true
+urxvt.modifier:alt
+urxvt.urlLauncher: firefox
+urxvt.matcher.button: 1
+urxvt.perl-ext-common: default,matcher,tabbed
+
+ urxvt.urgentOnBell: true
+! Taille du buffer et barre de défilement
+URxvt*saveLines: 10000
+URxvt*scrollBar: true
+URxvt*scrollBar_right: true
+!URxvt*scrollColor: #c2dd5a
+URxvt*scrollColor: #7ba2d2
+URxvt*scrollBar_floating: true
+URxvt*scrollstyle: plain
+
+! Colors
+urxvt.color0: #000000
+urxvt.color1: #a40000
+urxvt.color2: #4a9a06
+urxvt.color3: #c4a000
+urxvt.color4: #204a87
+urxvt.color5: #5c3566
+urxvt.color6: #729fcf
+urxvt.color7: #eeeeec
+urxvt.color8: #000000
+urxvt.color9: #cc0000
+urxvt.color10: #73d216
+urxvt.color11: #edd409
+urxvt.color12: #3465a4
+urxvt.color13: #75507b
+urxvt.color14: #729fcf
+urxvt.color15: #ffffff
+
+
+!-----------------
+!tabs colors
+!----------------
+!URxvt*tabbed*tabbar-fg: 8
+!URxvt*tabbed*tabbar-bg: 0
+!URxvt*tabbed*tab-fg: 8
+!URxvt*tabbed*tab-bg: 1
+
+!----------------
+!Clipboard
+!----------------
+URxvt*keysym*M-c: perl:clipboard:copy
+URxvt*keysym*C-v: perl:clipboard:paste
+
+
+! Xterm --------------------------------------------------------------------
+
+! General
+xterm*background: #242424
+xterm*foreground: #ffffff
+xterm*faceName: xft:Dejavu Sans Mono:pixelsiz
+e=13:antialias=true
+
+! Colors
+xterm*color0: #000000
+xterm*color1: #a40000
+xterm*color2: #4a9a06
+xterm*color3: #c4a000
+xterm*color4: #204a87
+xterm*color5: #5c3566
+xterm*color6: #729fcf
+xterm*color7: #eeeeec
+xterm*color8: #000000
+xterm*color9: #cc0000
+xterm*color10: #73d216
+xterm*color11: #edd409
+xterm*color12: #3465a4
+xterm*color13: #75507b
+xterm*color14: #729fcf
+xterm*color15: #ffffff
+
+! Xcalc --------------------------------------------------------------------
+
+XCalc*ti.backgroundPixmap: gradient:vertical?dimension=500&start=gray90&end=gray10
+
+XCalc*ti.bevel.screen*backgroundPixmap:       
+gradient:horizontal?dimension=300&start=rgb:9/a/9&end=white
+
+XCalc*ti.Command.borderColor:           rgb:8/9/a
+XCalc*ti.Command.backgroundPixmap:            
+gradient:vertical?dimension=80&start=rgb:c/d/e&end=black
+XCalc*ti.Command.foreground:            gray5
+
+
+XCalc*ti.button20.foreground:           gray5
+XCalc*ti.button20.backgroundPixmap:     
+gradient:vertical?dimension=80&start=rgb:e/d/c&end=black
+XCalc*ti.button20.displayList:          foreground rgb:a/9/8;segments 
+8,-4,-9,-4,-4,-9,-4,8;draw-arc -14,-14,-4,-4,270,90
+XCalc*ti.button20.borderColor:          rgb:9/8/7
+
+XCalc*ti.button25.foreground:           gray5
+XCalc*ti.button25.backgroundPixmap:     
+gradient:vertical?dimension=80&start=rgb:e/d/c&end=black
+XXCalc*ti.button25.displayList:          foreground rgb:a/9/8;segments 
+8,-4,-9,-4,-4,-9,-4,8;draw-arc -14,-14,-4,-4,270,90
+XCalc*ti.button25.borderColor:          rgb:9/8/7
+
+XCalc*ti.button30.foreground:           gray5
+XCalc*ti.button30.backgroundPixmap:     
+gradient:vertical?dimension=80&start=rgb:e/d/c&end=black
+XCalc*ti.button30.displayList:          foreground rgb:a/9/8;segments 
+8,-4,-9,-4,-4,-9,-4,8;draw-arc -14,-14,-4,-4,270,90
+XCalc*ti.button30.borderColor:          rgb:9/8/7
+
+XCalc*ti.button35.foreground:           gray5
+XCalc*ti.button35.backgroundPixmap:     
+gradient:vertical?dimension=80&start=rgb:e/d/c&end=black
+XCalc*ti.button35.displayList:          foreground rgb:a/9/8;segments 
+8,-4,-9,-4,-4,-9,-4,8;draw-arc -14,-14,-4,-4,270,90
+XCalc*ti.button35.borderColor:          rgb:9/8/7
+
+XCalc*ti.button40.foreground:           gray5
+XCalc*ti.button40.backgroundPixmap:     
+gradient:vertical?dimension=80&start=rgb:e/d/c&end=black
+XCalc*ti.button40.displayList:          foreground rgb:a/9/8;segments 
+8,-4,-9,-4,-4,-9,-4,8;draw-arc -14,-14,-4,-4,270,90
+XCalc*ti.button40.borderColor:          rgb:9/8/7
+
+
+XCalc*ti.button22.background:           gray95
+XCalc*ti.button22.displayList:          foreground gray75;segments 
+8,-4,-9,-4,-4,-9,-4,8;draw-arc -14,-14,-4,-4,270,90
+XCalc*ti.button22.borderColor:          gray65
+XCalc*ti.button22.backgroundPixmap:     
+gradient:vertical?dimension=80&start=gray95&end=black
+XCalc*ti.button23.displayList:          foreground gray75;segments 
+8,-4,-9,-4,-4,-9,-4,8;draw-arc -14,-14,-4,-4,270,90
+XCalc*ti.button23.borderColor:          gray65
+
+XCalc*ti.button23.backgroundPixmap:     
+gradient:vertical?dimension=80&start=gray95&end=black
+XCalc*ti.button24.displayList:          foreground gray75;segments 
+8,-4,-9,-4,-4,-9,-4,8;draw-arc -14,-14,-4,-4,270,90
+XCalc*ti.button24.borderColor:          gray65
+
+XCalc*ti.button24.backgroundPixmap:     
+gradient:vertical?dimension=80&start=gray95&end=black
+XCalc*ti.button27.displayList:          foreground gray75;segments 
+8,-4,-9,-4,-4,-9,-4,8;draw-arc -14,-14,-4,-4,270,90
+XCalc*ti.button27.borderColor:          gray65
+
+XCalc*ti.button27.backgroundPixmap:     
+gradient:vertical?dimension=80&start=gray95&end=black
+XCalc*ti.button28.displayList:          foreground gray75;segments 
+8,-4,-9,-4,-4,-9,-4,8;draw-arc -14,-14,-4,-4,270,90
+XCalc*ti.button28.borderColor:          gray65
+
+XCalc*ti.button28.backgroundPixmap:     
+gradient:vertical?dimension=80&start=gray95&end=black
+XCalc*ti.button29.displayList:          foreground gray75;segments 
+8,-4,-9,-4,-4,-9,-4,8;draw-arc -14,-14,-4,-4,270,90
+XCalc*ti.button29.borderColor:          gray65
+
+XCalc*ti.button29.backgroundPixmap:     
+gradient:vertical?dimension=80&start=gray95&end=black
+XCalc*ti.button32.displayList:          foreground gray75;segments 
+8,-4,-9,-4,-4,-9,-4,8;draw-arc -14,-14,-4,-4,270,90
+XCalc*ti.button32.borderColor:          gray65
+
+XCalc*ti.button32.backgroundPixmap:     
+gradient:vertical?dimension=80&start=gray95&end=black
+XCalc*ti.button33.displayList:          foreground gray75;segments 
+8,-4,-9,-4,-4,-9,-4,8;draw-arc -14,-14,-4,-4,270,90
+XCalc*ti.button33.borderColor:          gray65
+
+XCalc*ti.button33.backgroundPixmap:     
+gradient:vertical?dimension=80&start=gray95&end=black
+XCalc*ti.button34.displayList:          foreground gray75;segments 
+8,-4,-9,-4,-4,-9,-4,8;draw-arc -14,-14,-4,-4,270,90
+XCalc*ti.button34.borderColor:          gray65
+XCalc*ti.button34.backgroundPixmap:     
+gradient:vertical?dimension=80&start=gray95&end=black
+XCalc*ti.button37.backgroundPixmap:     
+gradient:vertical?dimension=80&start=gray95&end=black
+XCalc*ti.button37.displayList:          foreground gray75;segments 
+8,-4,-9,-4,-4,-9,-4,8;draw-arc -14,-14,-4,-4,270,90
+XCalc*ti.button37.borderColor:          gray65
+XCalc*ti.button38.backgroundPixmap:     
+gradient:vertical?dimension=80&start=gray95&end=black
+XCalc*ti.button38.displayList:          foreground gray75;segments 
+8,-4,-9,-4,-4,-9,-4,8;draw-arc -14,-14,-4,-4,270,90
+XCalc*ti.button38.borderColor:          gray65
+
+XCalc*ti.button39.backgroundPixmap:     
+gradient:vertical?dimension=80&start=gray95&end=black
+XCalc*ti.button39.displayList:          foreground gray75;segments 
+8,-4,-9,-4,-4,-9,-4,8;draw-arc -14,-14,-4,-4,270,90
+XCalc*ti.button39.borderColor:          gray65
