@@ -39,6 +39,7 @@ autoload -U compinit
 compinit
 
 setopt correct
+setopt autopushd
 
 autoload -U promptinit
 promptinit
