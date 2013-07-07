@@ -25,9 +25,9 @@ Bundle 'gmarik/vundle'
 " My Bundles here:
 
 Bundle 'scrooloose/nerdtree'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'garbas/vim-snipmate'
+"Bundle 'MarcWeber/vim-addon-mw-utils'
+"Bundle 'tomtom/tlib_vim'
+"Bundle 'garbas/vim-snipmate'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Valloric/YouCompleteMe'
@@ -154,6 +154,7 @@ set laststatus=2   " Always show the statusline
 
 set t_Co=256 " Explicitly tell Vim that the terminal supports 256 colors
 
+let snippets_dir="$USER/.vim/snippets"
 
 " Move Backup Files to ~/.vim/sessions
 " set backupdir=~/.vim/sessions
@@ -163,8 +164,8 @@ set dir=~/.vim/sessions
 set noswapfile
 
 " Set persistent undo (v7.3 only)
-"set undodir=~/.vim/undodir
-"set undofile
+set undodir=~/.vim/undodir
+set undofile
 
 " Ajout d'une ligne colorée pour surligner la ligne en cours
 set cursorline
