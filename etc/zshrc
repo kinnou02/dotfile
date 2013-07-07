@@ -115,6 +115,7 @@ alias less='less --quiet'
 alias df='df --human-readable'
 alias du='du --human-readable'
 alias man="man -P most"
+alias mutt="mutt -y"
 
 
 for file in $HOME/.zsh/rc/*.rc; do
