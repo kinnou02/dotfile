@@ -205,3 +205,10 @@ then
     eval "`dircolors`"
   fi
 fi
+
+#agent ssh!
+gnome-keyring-daemon -s > /dev/null 2>&1
+SSH_AUTH_SOCK=$(ss -xl | grep -m1 -o '/tmp/keyring-.*/ssh')
+[ -z "$SSH_AUTH_SOCK" ] || export SSH_AUTH_SOCK
+export DEBEMAIL="alexandre.jacquin@canaltp.fr"
+export DEBFULLNAME="Alexandre JACQUIN"

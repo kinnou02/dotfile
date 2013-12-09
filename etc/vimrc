@@ -22,6 +22,7 @@ Bundle 'minibufexpl.vim'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/syntastic'
 Bundle 'majutsushi/tagbar'
+Bundle 'sjl/gundo.vim'
 
 " original repos on github
 " Bundle 'tpope/vim-fugitive'
@@ -40,6 +41,12 @@ Bundle 'majutsushi/tagbar'
 "leader is ,
 let mapleader = ","
 
+nnoremap <F5> :GundoToggle<CR>
+" where to save undo histories
+set undofile                " Save undo's after file closes
+set undodir=~/.vim/undo
+set undolevels=1000         " How many undos
+set undoreload=10000        " number of lines to save for undo
 
 "color scheme
 set background=dark
@@ -149,9 +156,6 @@ set dir=~/.vim/sessions
 " Turn off annoying swapfiles
 set noswapfile
 
-" Set persistent undo (v7.3 only)
-set undodir=~/.vim/undodir
-set undofile
 
 " Ajout d'une ligne colorée pour surligner la ligne en cours
 set cursorline
