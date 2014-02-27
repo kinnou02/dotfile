@@ -229,6 +229,7 @@ let g:omni_sql_no_default_maps = 1
 ".git/ .hg/ .svn/ .bzr/ _darcs/
 let g:ctrlp_working_path_mode = 2
 
+set wildignore+=*/venv/*,*/tmp/*
 let g:ctrlp_custom_ignore = {
   \ 'dir':  'build$\|release$\|debug$\|\.git$\|^venv$\|build_package$',
   \  'file': '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend|png)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])',

@@ -6,7 +6,7 @@ if has("gui_macvim")
 
 elseif has("gui_gtk2")
     "set guifont=Monaco\ 8
-    set guifont=Source\ Code\ Pro\ Regular\ 9
+    set guifont=Source\ Code\ Pro\ Regular\ 10
     set guioptions-=T " remove toolbar
 elseif has("x11")
 elseif has("gui_win32")
