@@ -131,7 +131,7 @@ bindkey '^Xe' edit-command-line
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 
 #export MAIL="/var/spool/mail/kinou/"
-export PATH="$HOME/bin:/usr/lib/ccache:/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:/usr/sbin:/usr/bin/X11:/usr/X11R6/bin:/usr/games:/sbin:/var/lib/gems/1.8/bin"
+export PATH="$HOME/bin:/usr/lib/ccache:/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:/usr/sbin:/usr/bin/X11:/usr/X11R6/bin:/usr/games:/sbin:/var/lib/gems/1.8/bin:/usr/local/heroku/bin"
 
 # Viewer/Editeur par defaut (pour Crontab, CVS,...)
 export VISUAL=vim
@@ -209,3 +209,4 @@ fi
 export WORKON_HOME=~/.virtualenvs
 mkdir -p $WORKON_HOME
 source /usr/bin/virtualenvwrapper.sh
+export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
