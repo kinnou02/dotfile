@@ -18,3 +18,5 @@ ln -s ~/dotfile/etc/zshrc ~/.zshrc
 ln -s ~/dotfile/etc/Xdefaults ~/.Xdefaults
 
 ln -s ~/dotfile/bin ~/bin
+
+ln -s ~/dotfile/fonts ~/.fonts

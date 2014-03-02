@@ -206,7 +206,17 @@ then
   fi
 fi
 
-export WORKON_HOME=~/.virtualenvs
-mkdir -p $WORKON_HOME
-source /usr/bin/virtualenvwrapper.sh
+if [ -x /usr/bin/virtualenvwrapper.sh ]
+then
+    export WORKON_HOME=~/.virtualenvs
+    mkdir -p $WORKON_HOME
+    source /usr/bin/virtualenvwrapper.sh
+fi
+
 export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
+#agent ssh!
+gnome-keyring-daemon -s > /dev/null 2>&1
+SSH_AUTH_SOCK=$(ss -xl | grep -m1 -o '/tmp/keyring-.*/ssh')
+[ -z "$SSH_AUTH_SOCK" ] || export SSH_AUTH_SOCK
+export DEBEMAIL="alexandre.jacquin@canaltp.fr"
+export DEBFULLNAME="Alexandre JACQUIN"

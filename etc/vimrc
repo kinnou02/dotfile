@@ -22,8 +22,8 @@ Bundle 'majutsushi/tagbar'
 Bundle 'sjl/gundo.vim'
 Bundle 'SirVer/ultisnips'
 Bundle 'tpope/vim-fugitive'
+Bundle 'delphi.vim'
 
-" original repos on github
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Bundle 'tpope/vim-rails.git'
 " " vim-scripts repos
@@ -46,6 +46,13 @@ let mapleader = ","
 " If doing a diff. Upon writing changes to file, automatically update the
 " differences
 autocmd BufWritePost * if &diff == 1 | diffupdate | endif
+
+nnoremap <F5> :GundoToggle<CR>
+" where to save undo histories
+set undofile                " Save undo's after file closes
+set undodir=~/.vim/undo
+set undolevels=1000         " How many undos
+set undoreload=10000        " number of lines to save for undo
 
 "color scheme
 set background=dark
@@ -155,9 +162,6 @@ set dir=~/.vim/sessions
 " Turn off annoying swapfiles
 set noswapfile
 
-" Set persistent undo (v7.3 only)
-set undodir=~/.vim/undodir
-set undofile
 
 " Ajout d'une ligne colorée pour surligner la ligne en cours
 set cursorline
@@ -219,7 +223,7 @@ map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 "
 " " Suffixes that get lower priority when doing tab completion for filenames.
 " " These are files we are not likely to want to edit or read.
-set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.png
 
 
 " supppression des mapping foireux dans les fichier sql
@@ -231,9 +235,10 @@ let g:omni_sql_no_default_maps = 1
 ".git/ .hg/ .svn/ .bzr/ _darcs/
 let g:ctrlp_working_path_mode = 2
 
+set wildignore+=*/venv/*,*/tmp/*
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  'build$\|release$\|debug$\|\.git$',
-  \  'file': '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py',
+  \ 'dir':  'build$\|release$\|debug$\|\.git$\|^venv$\|build_package$',
+  \  'file': '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend|png)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])',
   \ }
 
 let g:ctrlp_by_filename = 0
@@ -265,3 +270,11 @@ let g:ctrlp_open_new_file = 'r'
 " some hack for YCM and ultisnips work together: https://github.com/Valloric/YouCompleteMe/issues/36
 let g:UltiSnipsExpandTrigger="<c-a>"
 let g:UltiSnipsJumpForwardTrigger = '<c-a>'
+
+let g:ycm_filetype_blacklist = {'xml': 1}
+nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" .pas is delphi file
+au BufNewFile,BufRead *.pas,*.PAS set ft=delphi
+" .md is markdown file
+au BufNewFile,BufRead *.md set ft=markdown
