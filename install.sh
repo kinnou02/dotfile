@@ -20,3 +20,5 @@ ln -s ~/dotfile/etc/Xdefaults ~/.Xdefaults
 ln -s ~/dotfile/bin ~/bin
 
 ln -s ~/dotfile/fonts ~/.fonts
+#update font cache
+fc-cache -f -v
