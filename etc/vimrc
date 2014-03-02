@@ -15,15 +15,15 @@ Bundle 'vim-scripts/taglist.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'kien/ctrlp.vim'
-Bundle 'minibufexpl.vim'
+Bundle 'fholgado/minibufexpl.vim'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/syntastic'
 Bundle 'majutsushi/tagbar'
 Bundle 'sjl/gundo.vim'
 Bundle 'SirVer/ultisnips'
+Bundle 'tpope/vim-fugitive'
 
 " original repos on github
-" Bundle 'tpope/vim-fugitive'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Bundle 'tpope/vim-rails.git'
 " " vim-scripts repos
@@ -36,10 +36,16 @@ Bundle 'SirVer/ultisnips'
 
 nnoremap <F5> :GundoToggle<CR>
 
+noremap <f1> :bprev<CR>
+noremap <f2> :bnext<CR>
+
  filetype plugin indent on     " required!
 "leader is ,
 let mapleader = ","
 
+" If doing a diff. Upon writing changes to file, automatically update the
+" differences
+autocmd BufWritePost * if &diff == 1 | diffupdate | endif
 
 "color scheme
 set background=dark
