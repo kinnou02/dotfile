@@ -2,6 +2,14 @@
     ui = true
 [user]
     name = kinou
-    email =
+    email = kinou@rilynett.com
 [push]
-	default = simple
+	default = nothing
+[alias]
+	glog = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --boundary
+	st = status -sb
+	wdiff = diff --word-diff
+	cdiff = diff --cached
+	padd = add -p
+[pull]
+	rebase = true
