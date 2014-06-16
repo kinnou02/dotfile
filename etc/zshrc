@@ -236,7 +236,7 @@ fi
 export DEBEMAIL="alexandre.jacquin@canaltp.fr"
 export DEBFULLNAME="Alexandre JACQUIN"
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+if [ -e $HOME/.zsh.local ]
+then
+    source $HOME/.zsh.local
+fi
