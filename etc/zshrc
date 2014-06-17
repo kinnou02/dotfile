@@ -114,7 +114,7 @@ alias c='clear'
 alias less='less --quiet'
 alias df='df --human-readable'
 alias du='du --human-readable'
-alias man="man -P most"
+alias man="man"
 alias mutt="mutt -y"
 
 
@@ -136,6 +136,7 @@ export PATH="$HOME/bin:/usr/lib/ccache:/usr/local/bin:/usr/local/sbin:/bin:/usr/
 # Viewer/Editeur par defaut (pour Crontab, CVS,...)
 export VISUAL=vim
 export EDITOR=vim
+export PAGER=most
 umask 022
 
 # Correspondance touches-fonction

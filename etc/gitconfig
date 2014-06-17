@@ -13,3 +13,5 @@
 	padd = add -p
 [pull]
 	rebase = true
+[core]
+	whitespace = trailing-space
