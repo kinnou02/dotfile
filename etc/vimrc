@@ -24,6 +24,9 @@ Bundle 'SirVer/ultisnips'
 Bundle 'tpope/vim-fugitive'
 Bundle 'delphi.vim'
 
+Bundle 'mileszs/ack.vim'
+Bundle 'rking/ag.vim'
+
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Bundle 'tpope/vim-rails.git'
 " " vim-scripts repos
