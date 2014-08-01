@@ -207,11 +207,12 @@ then
   fi
 fi
 
-if [ -x /usr/bin/virtualenvwrapper.sh ]
+WRAPPER=$(which virtualenvwrapper.sh)
+if [ -x $WRAPPER ]
 then
     export WORKON_HOME=~/.virtualenvs
     mkdir -p $WORKON_HOME
-    source /usr/bin/virtualenvwrapper.sh
+    source $WRAPPER
 fi
 
 if [ -e $HOME/.rvm/scripts/rvm ]
