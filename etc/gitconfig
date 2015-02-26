@@ -1,17 +1,23 @@
-[color]
-    ui = true
 [user]
-    name = kinou
+    name = Alexandre Jacquin
     email = kinou@rilynett.com
+
+[color]
+    ui = auto
 [push]
-	default = nothing
+    default = nothing
 [alias]
-	glog = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --boundary
-	st = status -sb
-	wdiff = diff --word-diff
-	cdiff = diff --cached
-	padd = add -p
+    glog = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --boundary
+    st = status -sb
+    wdiff = diff --word-diff
+    cdiff = diff --cached
+    padd = add -p
+    changelog = log --pretty=format:'%h - %an, %ar: %s'
+    cancel-commit = reset HEAD^
 [pull]
-	rebase = true
+    rebase = true
 [core]
-	whitespace = trailing-space
+    whitespace = trailing-space
+
+[diff "localizablestrings"]
+    textconv = "iconv -f utf-16 -t utf-8"
