@@ -1,6 +1,6 @@
 export HISTFILE=$HOME/.history
-export HISTSIZE=5000
-export SAVEHIST=5000
+export HISTSIZE=50000
+export SAVEHIST=50000
 setopt hist_ignore_dups
 # La recherche dans  l'historique avec l'éditeur de commandes  de zsh ne
 # montre  pas  une même  ligne  plus  d'une fois,  même  si  elle a  été
@@ -12,6 +12,7 @@ setopt share_history
 setopt autocd extendedglob notify
 bindkey -e
 zstyle :compinstall filename '~/.zshrc'
+fpath=(~/.zsh/completion $fpath)
 
 autoload -U compinit
 compinit
@@ -34,6 +35,7 @@ zstyle ':completion:*:cp:*' ignore-line yes
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}'
 zstyle ':completion:*' max-errors 3 numeric
 zstyle ':completion:*' use-compctl false
+
 
 autoload -U compinit
 compinit
@@ -241,3 +243,5 @@ if [ -e $HOME/.zsh.local ]
 then
     source $HOME/.zsh.local
 fi
+
+bindkey "^X^E" edit-command-line

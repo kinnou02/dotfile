@@ -38,13 +38,14 @@ Bundle 'rking/ag.vim'
 " Bundle 'file:///Users/gmarik/path/to/plugin'
 
 nnoremap <F5> :GundoToggle<CR>
+nnoremap <F12> :CtrlP<CR>
 
 noremap <f1> :bprev<CR>
 noremap <f2> :bnext<CR>
 
  filetype plugin indent on     " required!
-"leader is ,
-let mapleader = ","
+"leader is space
+let mapleader = "\<Space>"
 
 " If doing a diff. Upon writing changes to file, automatically update the
 " differences
@@ -64,7 +65,7 @@ colorscheme ir_black
 " switch entre .cpp et .h
 map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
-set colorcolumn=120
+set colorcolumn=113
 
 
 "on map page up et down pour des déplacement de demi page
