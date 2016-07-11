@@ -1,31 +1,32 @@
 set nocompatible
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
 
 " let Vundle manage Vundle
 " required! 
-Bundle 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
-" My Bundles here:
+" My Plugins here:
 
-Bundle 'scrooloose/nerdtree'
-Bundle 'vim-scripts/taglist.vim'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'kien/ctrlp.vim'
-Bundle 'fholgado/minibufexpl.vim'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'scrooloose/syntastic'
-Bundle 'majutsushi/tagbar'
-Bundle 'sjl/gundo.vim'
-Bundle 'SirVer/ultisnips'
-Bundle 'tpope/vim-fugitive'
-Bundle 'delphi.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-scripts/taglist.vim'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'kien/ctrlp.vim'
+Plugin 'fholgado/minibufexpl.vim'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'scrooloose/syntastic'
+Plugin 'majutsushi/tagbar'
+Plugin 'sjl/gundo.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'tpope/vim-fugitive'
+Plugin 'delphi.vim'
 
-Bundle 'mileszs/ack.vim'
-Bundle 'rking/ag.vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'rking/ag.vim'
+Plugin 'rust-lang/rust.vim'
 
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Bundle 'tpope/vim-rails.git'
@@ -275,10 +276,22 @@ let g:ctrlp_open_new_file = 'r'
 let g:UltiSnipsExpandTrigger="<c-a>"
 let g:UltiSnipsJumpForwardTrigger = '<c-a>'
 
+let g:ycm_rust_src_path = '/home/kinou/workspace/others/rustc-1.8.0/src'
 let g:ycm_filetype_blacklist = {'xml': 1}
-nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
 " .pas is delphi file
 au BufNewFile,BufRead *.pas,*.PAS set ft=delphi
 " .md is markdown file
 au BufNewFile,BufRead *.md set ft=markdown
+
+"syntastic:
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:ycm_show_diagnostics_ui = 1

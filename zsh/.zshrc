@@ -99,6 +99,7 @@ export GREP_OPTIONS='--color=auto'
 alias grep='grep --color=auto'
 # Gestion du 'ls' : couleur & ne touche pas aux accents
 alias ls='ls --classify --tabsize=0 --literal --color=auto --show-control-chars --human-readable'
+alias ctest='ctest --output-on-failure'
 
 # Demande confirmation avant d'écraser un fichier
 alias cp='cp --interactive'
@@ -245,3 +246,12 @@ then
 fi
 
 bindkey "^X^E" edit-command-line
+#Ctrl-W delete the last word, or to the first /
+my-backward-delete-word() {
+    local WORDCHARS=${WORDCHARS/\//}
+    zle backward-delete-word
+}
+zle -N my-backward-delete-word
+bindkey '^W' my-backward-delete-word
+
+RUST_BACKTRACE=1
