@@ -27,6 +27,8 @@ Plugin 'delphi.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'rking/ag.vim'
 Plugin 'rust-lang/rust.vim'
+Plugin 'derekwyatt/vim-scala'
+
 
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Bundle 'tpope/vim-rails.git'
@@ -88,6 +90,7 @@ nnoremap <C-H> <C-W><C-H>
 
 " Vim5 and later versions support syntax highlighting. Uncommenting the
 " following enables syntax highlighting by default.
+let python_highlight_all=1
 if has("syntax")
   syntax on
 endif
@@ -295,3 +298,5 @@ set statusline+=%*
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:ycm_show_diagnostics_ui = 1
+let g:syntastic_lua_checkers = ["luac", "luacheck"]
+let g:syntastic_lua_luacheck_args = "--no-unused-args" 

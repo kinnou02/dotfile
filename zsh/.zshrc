@@ -94,8 +94,8 @@ unsetopt hup
 
 #alias
 alias -s pdf="evince"
+alias -s jar="java -jar"
 export GREP_COLOR=31
-export GREP_OPTIONS='--color=auto'
 alias grep='grep --color=auto'
 # Gestion du 'ls' : couleur & ne touche pas aux accents
 alias ls='ls --classify --tabsize=0 --literal --color=auto --show-control-chars --human-readable'
@@ -139,6 +139,7 @@ export PATH="$HOME/bin:/usr/lib/ccache:/usr/local/bin:/usr/local/sbin:/bin:/usr/
 # Viewer/Editeur par defaut (pour Crontab, CVS,...)
 export VISUAL=vim
 export EDITOR=vim
+export TERMINAL=urxvt
 export PAGER=most
 umask 022
 
@@ -227,7 +228,7 @@ export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
 #agent ssh!
 if [ keychain ]
 then
-    keychain
+    eval $(keychain --eval --quiet)
 elif [ -x gnome-keyring-daemon ]
 then
     SSH_ENV=$HOME/.ssh/environment
@@ -255,3 +256,5 @@ zle -N my-backward-delete-word
 bindkey '^W' my-backward-delete-word
 
 RUST_BACKTRACE=1
+
+[ -f ~/.Xmodmap ] && xmodmap ~/.Xmodmap
