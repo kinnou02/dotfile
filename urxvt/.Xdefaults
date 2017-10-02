@@ -17,7 +17,7 @@ urxvt.foreground: #ffffff
 !urxvt.font: xft:Dejavu Sans Mono:pixelsize=13:antialias=true
 urxvt.font: xft:Source Code Pro:size=10:antialias=true
 urxvt.modifier:alt
-urxvt.urlLauncher: firefox
+urxvt.urlLauncher: chromium-browser
 urxvt.matcher.button: 1
 urxvt.perl-ext-common: default,matcher,tabbed
 
@@ -99,6 +99,12 @@ xterm*color12: #3465a4
 xterm*color13: #75507b
 xterm*color14: #729fcf
 xterm*color15: #ffffff
+
+!! get option over to work
+URxvt.keysym.M-Left:        \033[1;5D
+URxvt.keysym.M-Right:       \033[1;5C
+URxvt.keysym.Control-Left:  \033[1;5D
+URxvt.keysym.Control-Right: \033[1;5C
 
 ! Xcalc --------------------------------------------------------------------
 

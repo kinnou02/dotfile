@@ -39,6 +39,10 @@ for_window [class="Keybase"] floating enable
 for_window [class="Steam"] floating enable
 #for_window [class="VirtualBox"] floating enable
 for_window [class="vlc"] floating enable
+for_window [class="shutter"] floating enable
+for_window [class="Shutter"] floating enable
+for_window [window_role="pop-up"] floating enable
+no_focus [window_role="pop-up"]
 
 # lock screen
 bindsym $mod+l exec i3lock -d -c 111111
@@ -121,9 +125,9 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # audio controls
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 'alsa_output.usb-DisplayLink_Dell_USB_3.0_Dock_40120455-02.analog-surround-21' '+5%' #increase sound volume
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 'alsa_output.usb-DisplayLink_Dell_USB_3.0_Dock_40120455-02.analog-surround-21' '-5%' #decrease sound volume
-bindsym XF86AudioMute exec pactl set-sink-mute 'alsa_output.usb-DisplayLink_Dell_USB_3.0_Dock_40120455-02.analog-surround-21' toggle # mute sound
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 'alsa_output.usb-DisplayLink_Dell_USB_3.0_Dock_40120455-02.analog-surround-41' '+5%' #increase sound volume
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 'alsa_output.usb-DisplayLink_Dell_USB_3.0_Dock_40120455-02.analog-surround-41' '-5%' #decrease sound volume
+bindsym XF86AudioMute exec pactl set-sink-mute 'alsa_output.usb-DisplayLink_Dell_USB_3.0_Dock_40120455-02.analog-surround-41' toggle # mute sound
 bindsym XF86AudioMicMute exec amixer set Capture toggle # mute mic
 bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
@@ -192,3 +196,5 @@ exec --no-startup-id feh --random --bg-fill ${HOME}/Images/bg/
 #exec xrdb -merge $HOME/.Xdefaults
 #
 exec --no-startup-id dunst -config .dunstrc
+exec --no-startup-id xautolock -time 10 -locker 'i3lock -d -c 111111'
+exec --no-startup-id shutter
