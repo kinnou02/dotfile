@@ -100,6 +100,8 @@ alias grep='grep --color=auto'
 # Gestion du 'ls' : couleur & ne touche pas aux accents
 alias ls='ls --classify --tabsize=0 --literal --color=auto --show-control-chars --human-readable'
 alias ctest='ctest --output-on-failure'
+alias ncal='ncal -Mb'
+alias cal='ncal'
 
 # Demande confirmation avant d'écraser un fichier
 alias cp='cp --interactive'
@@ -141,6 +143,7 @@ export VISUAL=vim
 export EDITOR=vim
 export TERMINAL=urxvt
 export PAGER=most
+export BROWSER=chromium-browser
 umask 022
 
 # Correspondance touches-fonction

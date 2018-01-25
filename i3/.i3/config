@@ -74,6 +74,10 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+# move workspace from screen
+#bindsym $mod+Alt+Left move workspace to output left
+#bindsym $mod+Alt+Right move workspace to output right
+
 # split in horizontal orientation
 bindsym $mod+h split h
 
@@ -125,9 +129,9 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # audio controls
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 'alsa_output.usb-DisplayLink_Dell_USB_3.0_Dock_40120455-02.analog-surround-41' '+5%' #increase sound volume
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 'alsa_output.usb-DisplayLink_Dell_USB_3.0_Dock_40120455-02.analog-surround-41' '-5%' #decrease sound volume
-bindsym XF86AudioMute exec pactl set-sink-mute 'alsa_output.usb-DisplayLink_Dell_USB_3.0_Dock_40120455-02.analog-surround-41' toggle # mute sound
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume $(LC_ALL=C pactl info | grep 'Default Sink' | cut -d':' -f2) '+5%' #increase sound volume
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume $(LC_ALL=C pactl info | grep 'Default Sink' | cut -d':' -f2) '-5%' #decrease sound volume
+bindsym XF86AudioMute exec pactl set-sink-mute $(LC_ALL=C pactl info | grep 'Default Sink' | cut -d':' -f2) toggle # mute sound
 bindsym XF86AudioMicMute exec amixer set Capture toggle # mute mic
 bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
