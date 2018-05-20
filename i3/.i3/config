@@ -30,10 +30,22 @@ bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 # kill focused window
 bindsym $mod+Shift+a kill
 
-# spotify: no border
-for_window [class="^Spotify$"] border none
-for_window [class="^Spotify Premium$"] border none
+assign [class="^URxvt$"] 2
+assign [class="Google-chrome"] 1
 
+workspace 1 output "DP2-2"
+workspace 2 output "DP2-1"
+workspace 3 output "DP2-2"
+workspace 5 output "DP2-2"
+
+# spotify: no border
+for_window [class="^Spotify$"] border none, move to workspace 7
+for_window [class="^Spotify Premium$"] border none
+assign [class="Spotify"] number 7
+assign [class="VirtualBox Machine"] number 5
+
+
+#for_window [class="Google-chrome"] move to workspace number 1
 for_window [class="Gimp"] floating enable
 for_window [class="Keybase"] floating enable
 for_window [class="Steam"] floating enable
@@ -138,16 +150,12 @@ bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2
 bindsym XF86AudioPrevious exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 
 # screen brightness controls
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5%
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5%
+#
 #bindsym XF86MonBrightnessUp exec sudo light -A 5 # increase screen brightness
 #bindsym XF86MonBrightnessDown exec sudo light -U 5 # decrease screen brightness
 
-# Screenshots
-# Screenshot fullscreen
-#bindsym Print exec "scrot -q 100 ${HOME}'/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S_$wx$h.png' -e ${HOME}'/google-cloud-sdk/bin/gsutil cp -a public-read $f gs://misc.j3ss.co/screenshots/ && echo https://misc.j3ss.co/screenshots/$n | xclip -i -selection clipboard'"
-# Screenshot with selection
-#bindsym $mod+Print exec "sleep 0.4; scrot -q 100 -s ${HOME}'/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S_$wx$h.png' -e ${HOME}'/google-cloud-sdk/bin/gsutil cp -a public-read $f gs://misc.j3ss.co/screenshots/ && echo https://misc.j3ss.co/screenshots/$n | xclip -i -selection clipboard'"
-# Screenshot current focused window
-#bindsym Shift+Print exec "scrot -q 100 -u ${HOME}'/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S_$wx$h.png' -e ${HOME}'/google-cloud-sdk/bin/gsutil cp -a public-read $f gs://misc.j3ss.co/screenshots/ && echo https://misc.j3ss.co/screenshots/$n | xclip -i -selection clipboard'"
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -192,7 +200,6 @@ bar {
 # auto run commands
 # set background
 # use the same background as slim (login manager)
-# this file is an alias to something in /home/jessie/Pictures
 exec --no-startup-id feh --random --bg-fill ${HOME}/Images/bg/
 
 # run the merge for good colors
@@ -202,3 +209,5 @@ exec --no-startup-id feh --random --bg-fill ${HOME}/Images/bg/
 exec --no-startup-id dunst -config .dunstrc
 exec --no-startup-id xautolock -time 10 -locker 'i3lock -d -c 111111'
 exec --no-startup-id shutter
+exec --no-startup-id synclient TapButton2=2 TapButton3=3
+exev --no-startup-id xcape -t 100

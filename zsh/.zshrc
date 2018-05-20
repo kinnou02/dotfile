@@ -23,6 +23,8 @@ zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
 zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
 zstyle ':completion:*' menu select=2
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
 autoload -U bashcompinit
 bashcompinit
@@ -143,7 +145,7 @@ export VISUAL=vim
 export EDITOR=vim
 export TERMINAL=urxvt
 export PAGER=most
-export BROWSER=chromium-browser
+export BROWSER=google-chrome
 umask 022
 
 # Correspondance touches-fonction
@@ -229,9 +231,10 @@ fi
 
 export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
 #agent ssh!
-if [ keychain ]
+KEYCHAIN=$(which keychain)
+if [ -x $KEYCHAIN ]
 then
-    eval $(keychain --eval --quiet)
+    eval $($KEYCHAIN --eval --quiet)
 elif [ -x gnome-keyring-daemon ]
 then
     SSH_ENV=$HOME/.ssh/environment

@@ -17,9 +17,10 @@ urxvt.foreground: #ffffff
 !urxvt.font: xft:Dejavu Sans Mono:pixelsize=13:antialias=true
 urxvt.font: xft:Source Code Pro:size=10:antialias=true
 urxvt.modifier:alt
-urxvt.urlLauncher: chromium-browser
+urxvt.urlLauncher: google-chrome
 urxvt.matcher.button: 1
 urxvt.perl-ext-common: default,matcher,tabbed
+!urxvt.perl-ext-common: default,matcher,tabbedex
 
  urxvt.urgentOnBell: true
 ! Taille du buffer et barre de défilement

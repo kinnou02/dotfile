@@ -1,1 +1,0 @@
-/home/kinou/.zsh/completion/_docker

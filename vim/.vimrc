@@ -14,7 +14,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'scrooloose/syntastic'
@@ -28,6 +28,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'rking/ag.vim'
 Plugin 'rust-lang/rust.vim'
 Plugin 'derekwyatt/vim-scala'
+Plugin 'fatih/vim-go'
 
 
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -204,10 +205,10 @@ let OmniCpp_MayCompleteDot = 1 " autocomplete after .
 let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
 let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
 let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
-let OmniCpp_SelectFirstItem = 1
+"let OmniCpp_SelectFirstItem = 1
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-set completeopt=menuone,menu,longest,preview
+"set completeopt=menuone,menu,longest,preview
 
 
 
@@ -243,13 +244,16 @@ let g:omni_sql_no_default_maps = 1
 ".git/ .hg/ .svn/ .bzr/ _darcs/
 let g:ctrlp_working_path_mode = 2
 
-set wildignore+=*/venv/*,*/tmp/*
+set wildignore+=*/venv/*,*/tmp/*,*/vendor/*
 let g:ctrlp_custom_ignore = {
   \ 'dir':  'build$\|release$\|debug$\|\.git$\|^venv$\|build_package$',
   \  'file': '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend|png)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])',
   \ }
 
 let g:ctrlp_by_filename = 0
+"ignore file from gitignore
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
 
 "When opening a file with <cr> or <c-t>, if the file’s already opened somewhere
 "CtrlP will try to jump to it instead of opening a new instance: >
@@ -300,3 +304,4 @@ let g:syntastic_check_on_wq = 0
 let g:ycm_show_diagnostics_ui = 1
 let g:syntastic_lua_checkers = ["luac", "luacheck"]
 let g:syntastic_lua_luacheck_args = "--no-unused-args" 
+
