@@ -195,6 +195,7 @@ bar {
 	font pango:monospace 8
 	status_command i3status --config ~/.i3/status.conf
     tray_output primary
+    binding_mode_indicator yes
 }
 
 # auto run commands
@@ -210,4 +211,4 @@ exec --no-startup-id dunst -config .dunstrc
 exec --no-startup-id xautolock -time 10 -locker 'i3lock -d -c 111111'
 exec --no-startup-id shutter
 exec --no-startup-id synclient TapButton2=2 TapButton3=3
-exec --no-startup-id xcape -t 100
+exec --no-startup-id xcape -t 200

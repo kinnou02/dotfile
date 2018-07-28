@@ -109,6 +109,8 @@ alias cal='ncal'
 alias cp='cp --interactive'
 alias mv='mv --interactive'
 alias rm='rm --interactive'
+alias ip='ip --color'
+alias ipb='ip --color --brief'
 
 # Raccourcis pour 'ls'
 alias l="ls -alh --color=auto"
@@ -144,9 +146,12 @@ export PATH="$HOME/bin:/usr/lib/ccache:/usr/local/bin:/usr/local/sbin:/bin:/usr/
 export VISUAL=vim
 export EDITOR=vim
 export TERMINAL=urxvt
-export PAGER=most
-export BROWSER=google-chrome
+export BROWSER=firefox
 umask 022
+
+if [ -e $(which most) ]; then
+    export PAGER=most
+fi
 
 # Correspondance touches-fonction
 bindkey '^A' beginning-of-line # Home
@@ -251,6 +256,10 @@ if [ -e $HOME/.zsh.local ]
 then
     source $HOME/.zsh.local
 fi
+if [ -e $SSHHOME/.sshrc.d/.zsh.local ]
+then
+    source $SSHHOME/.sshrc.d/.zsh.local
+fi
 
 bindkey "^X^E" edit-command-line
 #Ctrl-W delete the last word, or to the first /
@@ -262,5 +271,6 @@ zle -N my-backward-delete-word
 bindkey '^W' my-backward-delete-word
 
 RUST_BACKTRACE=1
+compdef sshrc=ssh
 
 [ -f ~/.Xmodmap ] && xmodmap ~/.Xmodmap
