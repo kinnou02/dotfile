@@ -16,20 +16,27 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'fholgado/minibufexpl.vim'
-Plugin 'Lokaltog/vim-powerline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
 Plugin 'sjl/gundo.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'tpope/vim-fugitive'
-Plugin 'delphi.vim'
-
 Plugin 'mileszs/ack.vim'
 Plugin 'rking/ag.vim'
 Plugin 'rust-lang/rust.vim'
-Plugin 'derekwyatt/vim-scala'
 Plugin 'fatih/vim-go'
+Plugin 'joshdick/onedark.vim'
+Plugin 'sheerun/vim-polyglot'
 
+Plugin 'Yggdroot/LeaderF'
+
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
 
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Bundle 'tpope/vim-rails.git'
@@ -63,8 +70,14 @@ set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
 
 "color scheme
-set background=dark
-colorscheme ir_black
+set t_Co=256
+"set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set background=dark " Setting dark mode
+colorscheme onedark
+let g:deus_termcolors=256
+let g:AirlineTheme='onedark'
 
 " switch entre .cpp et .h
 map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
