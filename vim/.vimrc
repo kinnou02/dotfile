@@ -1,83 +1,78 @@
 set nocompatible
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#rc()
-
-" let Vundle manage Vundle
-" required! 
-Plugin 'VundleVim/Vundle.vim'
-
-" My Plugins here:
-
-Plugin 'scrooloose/nerdtree'
-Plugin 'vim-scripts/taglist.vim'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'fholgado/minibufexpl.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/syntastic'
-Plugin 'majutsushi/tagbar'
-Plugin 'sjl/gundo.vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'tpope/vim-fugitive'
-Plugin 'mileszs/ack.vim'
-Plugin 'rking/ag.vim'
-Plugin 'rust-lang/rust.vim'
-Plugin 'fatih/vim-go'
-Plugin 'joshdick/onedark.vim'
-Plugin 'sheerun/vim-polyglot'
-
-Plugin 'Yggdroot/LeaderF'
-
-let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
+" Load vim-plug
+if empty(glob("~/.vim/autoload/plug.vim"))
+    execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
-let g:airline_symbols.space = "\ua0"
+call plug#begin('~/.vim/plugged')
 
-" Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Bundle 'tpope/vim-rails.git'
-" " vim-scripts repos
-" Bundle 'L9'
-" Bundle 'FuzzyFinder'
-" " non github repos
-" Bundle 'git://git.wincent.com/command-t.git'
-" " git repos on your local machine (ie. when working on your own plugin)
-" Bundle 'file:///Users/gmarik/path/to/plugin'
+Plug 'scrooloose/nerdtree'
+Plug 'vim-scripts/taglist.vim'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --go-completer --rust-completer' }
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'fholgado/minibufexpl.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'scrooloose/syntastic'
+Plug 'majutsushi/tagbar'
+Plug 'sjl/gundo.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'mileszs/ack.vim'
+Plug 'rking/ag.vim'
+Plug 'rust-lang/rust.vim'
+Plug 'fatih/vim-go', { 'tag': '*', 'do': ':GoInstallBinaries' }
+Plug 'joshdick/onedark.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
-nnoremap <F5> :GundoToggle<CR>
+call plug#end()
+
+"leader is space
+let mapleader = "\<Space>"
+
+
+"config for leaderF
+highlight Lf_hl_match gui=bold guifg=Blue cterm=bold ctermfg=21
+highlight Lf_hl_matchRefine  gui=bold guifg=Magenta cterm=bold ctermfg=201
+
+"some shorcut
 nnoremap <F12> :CtrlP<CR>
 
 noremap <f1> :bprev<CR>
 noremap <f2> :bnext<CR>
 
  filetype plugin indent on     " required!
-"leader is space
-let mapleader = "\<Space>"
 
 " If doing a diff. Upon writing changes to file, automatically update the
 " differences
 autocmd BufWritePost * if &diff == 1 | diffupdate | endif
 
+"gundo and undo
 nnoremap <F5> :GundoToggle<CR>
 " where to save undo histories
 set undofile                " Save undo's after file closes
 set undodir=~/.vim/undo
 set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
+nnoremap <F5> :GundoToggle<CR>
 
 "color scheme
 set t_Co=256
-"set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set background=dark " Setting dark mode
 colorscheme onedark
 let g:deus_termcolors=256
 let g:AirlineTheme='onedark'
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
 
 " switch entre .cpp et .h
 map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
@@ -117,10 +112,6 @@ let g:Powerline_symbols = 'unicode'
 
 nmap <C-e> :e#<CR>
 
-
-" If using a dark background within the editing area and syntax highlighting
-" turn on this option as well
-set background=dark
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
@@ -173,10 +164,6 @@ nnoremap <silent> <F9> :NERDTree<CR>
 
 set laststatus=2   " Always show the statusline
 
-set t_Co=256 " Explicitly tell Vim that the terminal supports 256 colors
-
-let snippets_dir="$USER/.vim/snippets"
-
 " Move Backup Files to ~/.vim/sessions
 " set backupdir=~/.vim/sessions
 set dir=~/.vim/sessions
@@ -194,7 +181,6 @@ highlight TabLine term=none cterm=none
 highlight TabLineSel ctermbg=darkblue
 
 "completion
-
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
@@ -246,7 +232,6 @@ map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 " " Suffixes that get lower priority when doing tab completion for filenames.
 " " These are files we are not likely to want to edit or read.
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.png
-
 
 " supppression des mapping foireux dans les fichier sql
 let g:omni_sql_no_default_maps = 1
