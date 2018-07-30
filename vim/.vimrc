@@ -38,9 +38,13 @@ let mapleader = "\<Space>"
 "config for leaderF
 highlight Lf_hl_match gui=bold guifg=Blue cterm=bold ctermfg=21
 highlight Lf_hl_matchRefine  gui=bold guifg=Magenta cterm=bold ctermfg=201
+let g:Lf_ShowHidden = 1
+let g:Lf_WorkingDirectoryMode = 'a'
+let g:Lf_RootMarkers = ['.git', '.hg', '.svn']
+noremap <leader>t :LeaderfTag<CR>
+noremap <leader>l :LeaderfBufTag<CR>
 
 "some shorcut
-nnoremap <F12> :CtrlP<CR>
 
 noremap <f1> :bprev<CR>
 noremap <f2> :bnext<CR>
@@ -160,7 +164,7 @@ highlight LineNr ctermbg=black ctermfg=gray
 "Mapping pour l'activation de l'explorateur
 ""système: NERDTree
 """"""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent> <F9> :NERDTree<CR>
+nnoremap <silent> <F9> :NERDTreeToggle<CR>
 
 set laststatus=2   " Always show the statusline
 
@@ -193,7 +197,9 @@ autocmd FileType xml set omnifunc=xmlcomplete#CompletePHP
 set complete-=i
 source ~/.vim/tags/tags.vim
 " build tags of your own project with Ctrl-F12
-map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+"map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+map <C-F12> :!ctags -R .<CR>
+
 
 " OmniCppComplete
 let OmniCpp_NamespaceSearch = 1
@@ -236,6 +242,9 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 " supppression des mapping foireux dans les fichier sql
 let g:omni_sql_no_default_maps = 1
 
+
+nnoremap <F12> :CtrlP<CR>
+nnoremap <c-b> :CtrlPBuffer<CR>
 "0 - don’t manage working directory.
 "1 - the parent directory of the current file.
 "2 - the nearest ancestor that contains one of these directories or files:
