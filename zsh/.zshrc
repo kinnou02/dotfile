@@ -1,3 +1,10 @@
+#internal Function
+# Returns whether the given command is executable or aliased.
+_has() {
+  return $( whence $1 >/dev/null )
+}
+
+
 export HISTFILE=$HOME/.history
 export HISTSIZE=50000
 export SAVEHIST=50000
@@ -274,3 +281,11 @@ RUST_BACKTRACE=1
 compdef sshrc=ssh
 
 [ -f ~/.Xmodmap ] && xmodmap ~/.Xmodmap
+
+#FZF
+if _has rg; then
+  export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -11,7 +11,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'vim-scripts/taglist.vim'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --go-completer --rust-completer' }
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'fholgado/minibufexpl.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -20,32 +19,22 @@ Plug 'majutsushi/tagbar'
 Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'mileszs/ack.vim'
-Plug 'rking/ag.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'fatih/vim-go', { 'tag': '*', 'do': ':GoInstallBinaries' }
 Plug 'joshdick/onedark.vim'
 Plug 'sheerun/vim-polyglot'
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'ajmwagar/vim-deus'
 
 call plug#end()
 
 "leader is space
 let mapleader = "\<Space>"
 
-
-"config for leaderF
-highlight Lf_hl_match gui=bold guifg=Blue cterm=bold ctermfg=21
-highlight Lf_hl_matchRefine  gui=bold guifg=Magenta cterm=bold ctermfg=201
-let g:Lf_ShowHidden = 1
-let g:Lf_WorkingDirectoryMode = 'a'
-let g:Lf_RootMarkers = ['.git', '.hg', '.svn']
-noremap <leader>t :LeaderfTag<CR>
-noremap <leader>l :LeaderfBufTag<CR>
-
 "some shorcut
-
 noremap <f1> :bprev<CR>
 noremap <f2> :bnext<CR>
 
@@ -69,9 +58,9 @@ set t_Co=256
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set background=dark " Setting dark mode
-colorscheme onedark
+colorscheme deus
 let g:deus_termcolors=256
-let g:AirlineTheme='onedark'
+let g:AirlineTheme='deus'
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -242,49 +231,11 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 " supppression des mapping foireux dans les fichier sql
 let g:omni_sql_no_default_maps = 1
 
-
-nnoremap <F12> :CtrlP<CR>
-nnoremap <c-b> :CtrlPBuffer<CR>
-"0 - don’t manage working directory.
-"1 - the parent directory of the current file.
-"2 - the nearest ancestor that contains one of these directories or files:
-".git/ .hg/ .svn/ .bzr/ _darcs/
-let g:ctrlp_working_path_mode = 2
-
-set wildignore+=*/venv/*,*/tmp/*,*/vendor/*
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  'build$\|release$\|debug$\|\.git$\|^venv$\|build_package$',
-  \  'file': '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend|png)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])',
-  \ }
-
-let g:ctrlp_by_filename = 0
-"ignore file from gitignore
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-
-
-"When opening a file with <cr> or <c-t>, if the file’s already opened somewhere
-"CtrlP will try to jump to it instead of opening a new instance: >
-  let g:ctrlp_switch_buffer = 2
-"  1 - only jump to the buffer if it’s opened in the current tab.
-"  2 - jump tab as well if the buffer’s opened in another tab.
- " 0 - disable this feature.
-
-
-"Use this to set your own root markers in addition to the default ones (.git/,
-".hg/, .svn/, .bzr/, and _darcs/). Your markers will take precedence: >
-"let g:ctrlp_root_markers = ['CMakeLists.txt']
- 
-"Set this to 0 if you don’t want CtrlP to scan for dotfiles and dotdirs: >
-let g:ctrlp_dotfiles = 1
-
-"Use this option to specify how the newly created file is to be opened when
-"pressing <c-y>:
-"  t - in a new tab
-"  h - in a new horizontal split
-"  v - in a new vertical split
-"  r - in the current window
-let g:ctrlp_open_new_file = 'r'
-
+set wildignore+=.git,.hg,.svn
+set wildignore+=*/venv/*,*/tmp/*,*/vendor/*,*/third_party/*
+set wildignore+=*.pdf,*.png,*.jpg,*.jpeg,*.o,*.so,*.a,
+set wildignore+=*.aux,*.out,*.toc
+set wildignore+=*.zip,*tar.gz,*.tar.bz2,*.tar.xz,*rar
 
 " some hack for YCM and ultisnips work together: https://github.com/Valloric/YouCompleteMe/issues/36
 let g:UltiSnipsExpandTrigger="<c-a>"
@@ -312,3 +263,38 @@ let g:ycm_show_diagnostics_ui = 1
 let g:syntastic_lua_checkers = ["luac", "luacheck"]
 let g:syntastic_lua_luacheck_args = "--no-unused-args" 
 
+"FZF
+
+
+noremap <leader>f :Files<CR>
+noremap <leader>b :Buffers<CR>
+noremap <leader>t :Tags<CR>
+noremap <leader>l :BTags<CR>
+
+" [Buffers] Jump to the existing window if possible
+let g:fzf_buffers_jump = 1
+
+" [[B]Commits] Customize the options used by 'git log':
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+
+" [Tags] Command to generate tags file
+let g:fzf_tags_command = 'ctags -R'
+
+" [Commands] --expect expression for directly executing the command
+let g:fzf_commands_expect = 'alt-enter,ctrl-x'
+
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
