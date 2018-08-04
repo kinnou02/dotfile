@@ -6,8 +6,8 @@ _has() {
 
 
 export HISTFILE=$HOME/.history
-export HISTSIZE=50000
-export SAVEHIST=50000
+export HISTSIZE=1000000
+export SAVEHIST=1000000
 setopt hist_ignore_dups
 # La recherche dans  l'historique avec l'éditeur de commandes  de zsh ne
 # montre  pas  une même  ligne  plus  d'une fois,  même  si  elle a  été
@@ -15,6 +15,9 @@ setopt hist_ignore_dups
 setopt hist_find_no_dups
 setopt inc_append_history
 setopt share_history
+setopt EXTENDED_HISTORY # Write the history file in the ":start:elapsed;command" format.
+setopt HIST_EXPIRE_DUPS_FIRST # Expire duplicate entries first when trimming history.
+setopt HIST_IGNORE_ALL_DUPS # Delete old recorded entry if new entry is a duplicate.
 
 setopt autocd extendedglob notify
 bindkey -e
