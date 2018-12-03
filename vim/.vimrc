@@ -1,5 +1,6 @@
 set nocompatible
 filetype off                   " required!
+set encoding=utf-8
 
 " Load vim-plug
 if empty(glob("~/.vim/autoload/plug.vim"))
@@ -14,7 +15,8 @@ Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --go-compl
 Plug 'fholgado/minibufexpl.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'scrooloose/syntastic'
+"Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 Plug 'majutsushi/tagbar'
 Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-fugitive'
@@ -28,6 +30,9 @@ Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'ajmwagar/vim-deus'
+Plug 'vim-scripts/argtextobj.vim'
+Plug 'kshenoy/vim-signature'
+"Plug 'ambv/black'
 
 call plug#end()
 
@@ -45,6 +50,9 @@ noremap <f2> :bnext<CR>
 autocmd BufWritePost * if &diff == 1 | diffupdate | endif
 
 "gundo and undo
+if has('python3')
+    let g:gundo_prefer_python3 = 1
+endif
 nnoremap <F5> :GundoToggle<CR>
 " where to save undo histories
 set undofile                " Save undo's after file closes
@@ -66,6 +74,10 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 let g:airline_symbols.space = "\ua0"
+let rline_highlighting_cache = 1
+let ttimeoutlen=10
+"let g:airline#extensions#tabline#enabled = 1
+let g:airline_extensions = ["fugitiveline", "ycm", "branch"]
 
 " switch entre .cpp et .h
 map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
@@ -128,6 +140,10 @@ set incsearch       " Incremental search
 "set autowrite      " Automatically save before commands like :next and :make
 set hidden             " Hide buffers when they are abandoned
 "set mouse=a        " Enable mouse usage (all modes)
+"autosave
+set autowrite
+au FocusLost * silent! wa
+
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
@@ -263,6 +279,8 @@ let g:ycm_show_diagnostics_ui = 1
 let g:syntastic_lua_checkers = ["luac", "luacheck"]
 let g:syntastic_lua_luacheck_args = "--no-unused-args" 
 
+let g:syntastic_rust_checkers = ['rustc'] "disable cargo as it cause freeze in vim
+
 "FZF
 
 
@@ -298,3 +316,7 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+
+"ALE
+let g:ale_python_pylint_options = '--disable C'
+

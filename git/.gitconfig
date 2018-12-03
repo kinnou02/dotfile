@@ -1,17 +1,18 @@
 [user]
     name = Alexandre Jacquin
     email = alexandre.jacquin@canaltp.fr
+	signingkey = AA0B3E87
 
 [color]
     ui = auto
 [push]
-	default = nothing
+    default = nothing
 [alias]
-	glog = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --boundary
-	st = status -sb
-	wdiff = diff --word-diff
-	cdiff = diff --cached
-	padd = add -p
+    glog = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --boundary
+    st = status -sb
+    wdiff = diff --word-diff
+    cdiff = diff --cached
+    padd = add -pi
     changelog = log --pretty=format:'%h - %an, %ar: %s'
     cancel-commit = reset HEAD^
     pr = "!f() { git fetch -fu ${2:-canaltp} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
@@ -21,14 +22,22 @@
     remotes = remote -v
 
 [pull]
-	rebase = true
+    rebase = true
 [core]
-	whitespace = trailing-space
+    whitespace = trailing-space
 
 [diff "localizablestrings"]
     textconv = "iconv -f utf-16 -t utf-8"
 [diff]
-	compactionHeuristic = true
+    compactionHeuristic = true
     renames = copies
+    tool = icdiff
 [merge]
     log = true
+
+[difftool]
+  prompt = false
+[difftool "icdiff"]
+  cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
+[gpg]
+	program = gpg2

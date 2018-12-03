@@ -106,6 +106,7 @@ unsetopt hup
 
 #alias
 alias -s pdf="evince"
+export BAT_PAGER="less"
 alias -s jar="java -jar"
 export GREP_COLOR=31
 alias grep='grep --color=auto'
@@ -114,6 +115,9 @@ alias ls='ls --classify --tabsize=0 --literal --color=auto --show-control-chars 
 alias ctest='ctest --output-on-failure'
 alias ncal='ncal -Mb'
 alias cal='ncal'
+alias rg='rg -S'
+
+if test -x $(which bat); then alias cat='bat'; fi
 
 # Demande confirmation avant d'écraser un fichier
 alias cp='cp --interactive'
@@ -156,7 +160,7 @@ export PATH="$HOME/bin:/usr/lib/ccache:/usr/local/bin:/usr/local/sbin:/bin:/usr/
 export VISUAL=vim
 export EDITOR=vim
 export TERMINAL=urxvt
-export BROWSER=firefox
+export BROWSER=google-chrome
 umask 022
 
 if [ -e $(which most) ]; then
