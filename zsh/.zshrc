@@ -117,8 +117,6 @@ alias ncal='ncal -Mb'
 alias cal='ncal'
 alias rg='rg -S'
 
-if test -x $(which bat); then alias cat='bat'; fi
-
 # Demande confirmation avant d'écraser un fichier
 alias cp='cp --interactive'
 alias mv='mv --interactive'

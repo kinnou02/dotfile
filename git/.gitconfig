@@ -20,6 +20,7 @@
     tags = tag -l
     branches = branch -a
     remotes = remote -v
+    forget = reset HEAD
 
 [pull]
     rebase = true
