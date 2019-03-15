@@ -33,8 +33,13 @@ Plug 'ajmwagar/vim-deus'
 Plug 'vim-scripts/argtextobj.vim'
 Plug 'kshenoy/vim-signature'
 "Plug 'ambv/black'
+Plug 'https://github.com/Shougo/neocomplete.vim'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'rhysd/vim-grammarous'
 
 call plug#end()
+let g:neocomplete#enable_at_startup = 1
 
 "leader is space
 let mapleader = "\<Space>"
@@ -83,6 +88,10 @@ let g:airline_extensions = ["fugitiveline", "ycm", "branch"]
 map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
 set colorcolumn=113
+
+" markdown
+" disable folding
+let g:vim_markdown_folding_disabled = 1
 
 
 "on map page up et down pour des déplacement de demi page
