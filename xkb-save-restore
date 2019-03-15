@@ -1,0 +1,56 @@
+#!/bin/sh
+
+# /etc/pm/sleep.d/xkb-save-restore
+# See pm-action(8) man page for the documentation.
+# See /var/log/pm-suspend.log* for the logs.
+#
+# "xhost +si:localuser:root" must be run by the user, for instance
+# at login time, so that xkbcomp can have access to the display.
+
+set -e
+
+dir=/run/pm-xkb
+mkdir -p $dir
+displays=$dir/displays
+env=$dir/env
+
+unset list
+
+ok()
+{
+  if [ -n "$list" ]; then
+    echo "$1 XKB settings for displays:$list"
+  fi
+}
+
+xkbsave()
+{
+  : > $displays
+  cd /tmp/.X11-unix
+  for file in X*
+  do
+    d=${file#X}
+    if xkbcomp :$d $dir/$d; then
+      echo $d >> $displays
+      list="$list $d"
+    fi
+  done
+  ok saved
+}
+
+xkbrestore()
+{
+  while read d
+  do
+    xkbcomp $dir/$d :$d
+    list="$list $d"
+  done < $displays
+  ok restored
+}
+
+case $1 in
+  suspend|hibernate) xkbsave ;;
+  resume|thaw) xkbrestore ;;
+  *) echo "unsupported argument" >&2
+     exit 1 ;;
+esac
