@@ -48,7 +48,12 @@ let mapleader = "\<Space>"
 noremap <f1> :bprev<CR>
 noremap <f2> :bnext<CR>
 
- filetype plugin indent on     " required!
+filetype plugin indent on     " required!
+
+" remap ; to : useful for us layout
+map ; :
+noremap ;; ;
+
 
 " If doing a diff. Upon writing changes to file, automatically update the
 " differences
