@@ -68,12 +68,6 @@ URxvt*scrollTtyKeypress: true
 !URxvt*tabbed*tab-fg: 8
 !URxvt*tabbed*tab-bg: 1
 
-!----------------
-!Clipboard
-!----------------
-URxvt*keysym*M-c: perl:clipboard:copy
-URxvt*keysym*C-v: perl:clipboard:paste
-
 
 ! Xterm --------------------------------------------------------------------
 
