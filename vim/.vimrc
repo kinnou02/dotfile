@@ -37,6 +37,8 @@ Plug 'https://github.com/Shougo/neocomplete.vim'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'rhysd/vim-grammarous'
+Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-dispatch'
 
 call plug#end()
 let g:neocomplete#enable_at_startup = 1
@@ -90,13 +92,13 @@ let ttimeoutlen=10
 let g:airline_extensions = ["fugitiveline", "ycm", "branch"]
 
 " switch entre .cpp et .h
-map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
+"map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
 set colorcolumn=113
 
-" markdown
 " disable folding
 let g:vim_markdown_folding_disabled = 1
+set foldmethod=indent
 
 
 "on map page up et down pour des déplacement de demi page
@@ -151,11 +153,11 @@ set showmatch       " Show matching brackets.
 set ignorecase      " Do case insensitive matching
 set smartcase       " Do smart case matching
 set incsearch       " Incremental search
-"set autowrite      " Automatically save before commands like :next and :make
 set hidden             " Hide buffers when they are abandoned
 "set mouse=a        " Enable mouse usage (all modes)
 "autosave
 set autowrite
+set autoread
 au FocusLost * silent! wa
 
 
@@ -167,6 +169,8 @@ endif
 " Activation de l'indentation automatique
 set autoindent
 set smartindent
+set smarttab
+set scrolloff=5
 
 " Redefinition des tabulations
 set expandtab
@@ -174,9 +178,11 @@ set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 set backspace=indent,eol,start  " more powerful backspacing
+set switchbuf=useopen,split
 
 " Ajout de la numérotation des lignes
 set number
+set relativenumber
 highlight LineNr ctermbg=black ctermfg=gray
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -261,6 +267,7 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 " supppression des mapping foireux dans les fichier sql
 let g:omni_sql_no_default_maps = 1
 
+set wildmenu
 set wildignore+=.git,.hg,.svn
 set wildignore+=*/venv/*,*/tmp/*,*/vendor/*,*/third_party/*
 set wildignore+=*.pdf,*.png,*.jpg,*.jpeg,*.o,*.so,*.a,
@@ -334,3 +341,25 @@ let g:fzf_colors =
 "ALE
 let g:ale_python_pylint_options = '--disable C'
 
+let g:projectionist_heuristics = {
+\   '*': {
+\      '*.cpp': {
+\           'alternate': '{}.h',
+\           'type': 'source'
+\       },
+\      'tests/*_test.cpp': {
+\           'alternate': ['{}.cpp', '{}.h'],
+\           'type': 'test'
+\       },
+\      '*.c': {
+\           'alternate': '{}.h',
+\           'type': 'source'
+\       },
+\       '*.h': {
+\           'alternate': ['{}.cpp', '{}.c'],
+\           'type': 'header'
+\       }
+\   }
+\}
+
+runtime! macros/matchit.vim
