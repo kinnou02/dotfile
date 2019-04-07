@@ -285,6 +285,17 @@ bindkey '^W' my-backward-delete-word
 RUST_BACKTRACE=1
 compdef sshrc=ssh
 
+# Make CTRL-Z background things and unbackground them.
+function fg-bg() {
+  if [[ $#BUFFER -eq 0 ]]; then
+    fg
+  else
+    zle push-input
+  fi
+}
+zle -N fg-bg
+bindkey '^Z' fg-bg
+
 [ -f ~/.Xmodmap ] && xmodmap ~/.Xmodmap
 
 #FZF
@@ -303,3 +314,11 @@ then
     $($ANTIBODY bundle zdharma/fast-syntax-highlighting)
     $($ANTIBODY bundle zsh-users/zsh-completions)
 fi
+
+# Base16 Shell
+#BASE16_SHELL="$HOME/.config/base16-shell/"
+#[ -n "$PS1" ] && \
+#    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+#        eval "$("$BASE16_SHELL/profile_helper.sh")"
+#base16_default-dark
+source $HOME/.zsh/colors

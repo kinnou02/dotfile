@@ -1,7 +1,6 @@
 " Leader mappings.
 
 " <Leader><Leader> -- Open last buffer.
-nnoremap <Leader><Leader> <C-^>
 nmap <C-e> :e#<CR>
 
 "nnoremap <Leader>q :quit<CR>

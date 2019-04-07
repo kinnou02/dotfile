@@ -9,6 +9,7 @@ set ignorecase      " Do case insensitive matching
 set smartcase       " Do smart case matching
 set incsearch       " Incremental search
 set autowrite
+au FocusLost * silent! wa "autosave on focus lost
 set autoread
 set smartindent
 
@@ -165,10 +166,6 @@ if has('syntax')
   set synmaxcol=200                   " don't bother syntax highlighting long lines
 endif
 
-if has('termguicolors')
-  set termguicolors                   " use guifg/guibg instead of ctermfg/ctermbg in terminal
-endif
-
 set textwidth=113                     " automatically hard wrap at 80 columns
 
 if has('persistent_undo')
@@ -197,6 +194,15 @@ if exists('s:viminfo')
     " Don't create root-owned files.
     execute 'set ' . s:viminfo . '='
   else
+    "set viminfo=%,<800,'10,/50,:100,h,f0,n~/.vim/cache/.viminfo
+    "            | |    |   |   |    | |  + viminfo file path
+    "            | |    |   |   |    | + file marks 0-9,A-Z 0=NOT stored
+    "            | |    |   |   |    + disable 'hlsearch' loading viminfo
+    "            | |    |   |   + command-line history saved
+    "            | |    |   + search history saved
+    "            | |    + files marks saved
+    "            | + lines saved each register (old name for <, vi6.2)
+    "            + save/restore buffer list
     " Defaults:
     "   Neovim: !,'100,<50,s10,h
     "   Vim:    '100,<50,s10,h
@@ -213,7 +219,7 @@ if exists('s:viminfo')
     " - f0 don't store file marks
     " - n: store in ~/.vim/tmp
     "
-    execute 'set ' . s:viminfo . "='0,<0,f0,n~/.vim/tmp/" . s:viminfo
+    "execute 'set ' . s:viminfo . "='0,<0,f0,n~/.vim/tmp/" . s:viminfo
 
     if !empty(glob('~/.vim/tmp/' . s:viminfo))
       if !filereadable(expand('~/.vim/tmp/' . s:viminfo))
@@ -247,8 +253,7 @@ if has('wildmenu')
 endif
 set wildmode=longest:full,full        " shell-like autocomplete to unambiguous portion
 
-" have Vim jump to the last position when reopening a file
-" TODO
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
+
+" " Suffixes that get lower priority when doing tab completion for filenames.
+" " These are files we are not likely to want to edit or read.
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.png
