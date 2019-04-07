@@ -1,3 +1,4 @@
 etc/vim/mytags/*
 *.swp
 etc/vim/tags/*
+vim/.vim/tmp

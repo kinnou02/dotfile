@@ -48,16 +48,10 @@ let g:neocomplete#enable_at_startup = 1
 
 "leader is space
 let mapleader = "\<Space>"
-
-"some shorcut
-noremap <f1> :bprev<CR>
-noremap <f2> :bnext<CR>
+let maplocalleader = "\\"
 
 filetype plugin indent on     " required!
 
-" remap ; to : useful for us layout
-map ; :
-noremap ;; ;
 
 
 " If doing a diff. Upon writing changes to file, automatically update the
@@ -70,10 +64,6 @@ if has('python3')
 endif
 nnoremap <F5> :GundoToggle<CR>
 " where to save undo histories
-set undofile                " Save undo's after file closes
-set undodir=~/.vim/undo
-set undolevels=1000         " How many undos
-set undoreload=10000        " number of lines to save for undo
 nnoremap <F5> :GundoToggle<CR>
 
 "color scheme
@@ -101,52 +91,21 @@ let g:airline_extensions = ["fugitiveline", "ycm", "branch"]
 " switch entre .cpp et .h
 "map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
-set colorcolumn=113
-
 " disable folding
 let g:vim_markdown_folding_disabled = 1
-set foldmethod=indent
-set foldminlines=2
 
 
-"on map page up et down pour des déplacement de demi page
-map <PageDown> <C-d>
-map <PageUp> <C-u>
-
-"Open new split panes to right and bottom, which feels more natural than Vim’s
-"default
-set splitbelow
-set splitright
-"We can use different key mappings for easy navigation between splits to save
-"a keystroke. So instead of ctrl-w then j, it’s just ctrl-j
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
 
 "match ErrorMsg '\%>120v.\+'
 
 " Vim5 and later versions support syntax highlighting. Uncommenting the
 " following enables syntax highlighting by default.
 let python_highlight_all=1
-if has("syntax")
-  syntax on
-endif
-
-set history=50                  " keep 50 lines of command line history
-set ruler                       " show the cursor position all the time
-
 
 let g:Powerline_symbols = 'unicode'
 
-nmap <C-e> :e#<CR>
 
 
-" Uncomment the following to have Vim jump to the last position when
-" reopening a file
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
 
 " Uncomment the following to have Vim load indentation rules and plugins
 " according to the detected filetype.
@@ -156,16 +115,6 @@ endif
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
-set showcmd     " Show (partial) command in status line.
-set showmatch       " Show matching brackets.
-set ignorecase      " Do case insensitive matching
-set smartcase       " Do smart case matching
-set incsearch       " Incremental search
-set hidden             " Hide buffers when they are abandoned
-"set mouse=a        " Enable mouse usage (all modes)
-"autosave
-set autowrite
-set autoread
 au FocusLost * silent! wa
 
 
@@ -174,23 +123,7 @@ if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
 
-" Activation de l'indentation automatique
-set autoindent
-set smartindent
-set smarttab
-set scrolloff=5
-
-" Redefinition des tabulations
-set expandtab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
-set backspace=indent,eol,start  " more powerful backspacing
-set switchbuf=useopen,split
-
 " Ajout de la numérotation des lignes
-set number
-set relativenumber
 highlight LineNr ctermbg=black ctermfg=gray
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -199,19 +132,8 @@ highlight LineNr ctermbg=black ctermfg=gray
 """"""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <silent> <F9> :NERDTreeToggle<CR>
 
-set laststatus=2   " Always show the statusline
-
-" Move Backup Files to ~/.vim/sessions
-" set backupdir=~/.vim/sessions
-set dir=~/.vim/sessions
-
-" Turn off annoying swapfiles
-set noswapfile
-
 
 " Ajout d'une ligne colorée pour surligner la ligne en cours
-set cursorline
-highlight CursorLine term=reverse cterm=reverse
 
 " Amélioration de la lisibilité des noms des onglets
 highlight TabLine term=none cterm=none
@@ -231,7 +153,7 @@ set complete-=i
 source ~/.vim/tags/tags.vim
 " build tags of your own project with Ctrl-F12
 "map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-map <C-F12> :!ctags -R .<CR>
+"map <C-F12> :!ctags -R .<CR>
 
 
 " OmniCppComplete
@@ -263,9 +185,6 @@ let Tlist_Use_Right_Window = 1      " affiche les tags sur le côté droit de l'
 "set listchars=nbsp:¤,tab:>-,trail:¤,extends:>,precedes:<,eol:¶,trail:·
 set listchars=tab:▸\ ,trail:·
 set list
-
-" ouvre un tag da   ns un nouvel onglet 
-map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 
 "
 " " Suffixes that get lower priority when doing tab completion for filenames.
