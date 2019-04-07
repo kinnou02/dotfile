@@ -11,6 +11,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'vim-scripts/taglist.vim'
 Plug 'Lokaltog/vim-easymotion'
+Plug 'ervandew/supertab'
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --go-completer --rust-completer' }
 Plug 'fholgado/minibufexpl.vim'
 Plug 'vim-airline/vim-airline'
@@ -39,6 +40,8 @@ Plug 'plasticboy/vim-markdown'
 Plug 'rhysd/vim-grammarous'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-dispatch'
+Plug 'wincent/loupe'
+Plug 'wincent/terminus'
 
 call plug#end()
 let g:neocomplete#enable_at_startup = 1
@@ -74,6 +77,10 @@ set undoreload=10000        " number of lines to save for undo
 nnoremap <F5> :GundoToggle<CR>
 
 "color scheme
+if $TERM != 'rxvt-unicode-256color'
+    "urxvt does like termguicolor, everything will be the same...
+    set termguicolors
+endif
 set t_Co=256
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -99,6 +106,7 @@ set colorcolumn=113
 " disable folding
 let g:vim_markdown_folding_disabled = 1
 set foldmethod=indent
+set foldminlines=2
 
 
 "on map page up et down pour des déplacement de demi page
@@ -277,6 +285,12 @@ set wildignore+=*.zip,*tar.gz,*.tar.bz2,*.tar.xz,*rar
 " some hack for YCM and ultisnips work together: https://github.com/Valloric/YouCompleteMe/issues/36
 let g:UltiSnipsExpandTrigger="<c-a>"
 let g:UltiSnipsJumpForwardTrigger = '<c-a>'
+let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+
+let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
 
 let g:ycm_rust_src_path = '/home/kinou/workspace/others/rustc-1.8.0/src'
 let g:ycm_filetype_blacklist = {'xml': 1}

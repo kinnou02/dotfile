@@ -136,6 +136,7 @@ alias df='df --human-readable'
 alias du='du --human-readable'
 alias man="man"
 alias mutt="mutt -y"
+alias st="st -e tmux"
 
 
 for file in $HOME/.zsh/rc/*.rc; do
