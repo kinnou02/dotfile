@@ -22,7 +22,8 @@ font pango:Monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+#bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec st -e tmux
 
 # start dmenu
 bindsym $mod+Shift+d exec dmenu_run
@@ -220,5 +221,5 @@ exec --no-startup-id xautolock -time 10 -locker 'i3lock -d -c 111111'
 exec --no-startup-id shutter
 exec --no-startup-id synclient TapButton2=2 TapButton3=3
 #exec --no-startup-id setxkbmap fr -variant oss -option 'caps:nocaps' -option 'caps:ctrl_modifier'
-exec --no-startup-id setxkbmap fr,gb -variant oss,extd -option  -option 'caps:nocaps' -option 'caps:ctrl_modifier' -option grp:sclk_toggle -option grp_led:scroll
-exec --no-startup-id xcape -e 'Caps_Lock=Escape'
+#exec --no-startup-id setxkbmap fr,gb -variant oss,extd -option  -option 'caps:nocaps' -option 'caps:ctrl_modifier' -option grp:sclk_toggle -option grp_led:scroll
+#exec --no-startup-id xcape -e 'Caps_Lock=Escape'

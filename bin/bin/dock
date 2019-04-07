@@ -5,3 +5,6 @@ xrandr --output DP2-2 --auto --right-of eDP1 --primary
 xrandr --output DP1-1 --auto --right-of DP2-2
 #xrandr --output eDP1  --auto
 #xrandr --output eDP1 --off
+
+# we may need to restore keyboard configuration
+#setxkbmap fr,gb -variant oss,extd -option  -option 'caps:nocaps' -option 'caps:ctrl_modifier' -option grp:sclk_toggle -option grp_led:scroll
