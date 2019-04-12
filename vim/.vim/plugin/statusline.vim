@@ -9,5 +9,3 @@ let ttimeoutlen=10
 "let g:airline#extensions#tabline#enabled = 1
 let g:airline_extensions = ["fugitiveline", "ycm", "branch"]
 let g:Powerline_symbols = 'unicode'
-set statusline+=%#warningmsg#
-set statusline+=%*

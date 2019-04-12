@@ -104,39 +104,6 @@ unsetopt hup
 
 
 #alias
-alias -s pdf="evince"
-export BAT_PAGER="less"
-alias -s jar="java -jar"
-export GREP_COLOR=31
-alias grep='grep --color=auto'
-# Gestion du 'ls' : couleur & ne touche pas aux accents
-alias ls='ls --classify --tabsize=0 --literal --color=auto --show-control-chars --human-readable'
-alias ctest='ctest --output-on-failure'
-alias ncal='ncal -Mb'
-alias cal='ncal'
-alias rg='rg -S'
-
-# Demande confirmation avant d'écraser un fichier
-alias cp='cp --interactive'
-alias mv='mv --interactive'
-alias rm='rm --interactive'
-alias ip='ip --color'
-alias ipb='ip --color --brief'
-
-# Raccourcis pour 'ls'
-alias l="ls -alh --color=auto"
-alias ll='ls -lh'
-alias la='ls -ah'
-alias lla='ls -la'
-
-# Quelques alias pratiques
-alias c='clear'
-alias less='less --quiet'
-alias df='df --human-readable'
-alias du='du --human-readable'
-alias man="man"
-alias mutt="mutt -y"
-alias st="st -e tmux"
 
 
 for file in $HOME/.zsh/rc/*.rc; do
@@ -261,7 +228,7 @@ then
 else
     echo "NO compatible ssh-agent found (keyhain, gnome-keyring-daemon)"
 fi
-export DEBEMAIL="alexandre.jacquin@canaltp.fr"
+export DEBEMAIL="alexandre.jacquin@kisio.com"
 export DEBFULLNAME="Alexandre JACQUIN"
 
 if [ -e $HOME/.zsh.local ]
@@ -314,11 +281,4 @@ then
     $($ANTIBODY bundle zdharma/fast-syntax-highlighting)
     $($ANTIBODY bundle zsh-users/zsh-completions)
 fi
-
-# Base16 Shell
-#BASE16_SHELL="$HOME/.config/base16-shell/"
-#[ -n "$PS1" ] && \
-#    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-#        eval "$("$BASE16_SHELL/profile_helper.sh")"
-#base16_default-dark
 source $HOME/.zsh/colors

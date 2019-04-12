@@ -1,5 +1,5 @@
 "enable neocomplete
-let g:neocomplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 
 " Additional UltiSnips config.
 let g:UltiSnipsSnippetsDir = $HOME . '/.vim/ultisnips'
@@ -46,3 +46,35 @@ let g:omni_sql_no_default_maps = 1
 " configure tags - add additional tags here or comment out not-used ones
 set complete-=i
 source ~/.vim/tags/tags.vim
+
+let g:python_host_prog = '/usr/bin/python'
+let g:python3_host_prog = '/usr/bin/python3.6'
+
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ }
+
+"disable ycm on file managed by deoplete
+let g:ycm_filetype_blacklist = {
+      \ 'tagbar': 1,
+      \ 'notes': 1,
+      \ 'markdown': 1,
+      \ 'netrw': 1,
+      \ 'unite': 1,
+      \ 'text': 1,
+      \ 'vimwiki': 1,
+      \ 'pandoc': 1,
+      \ 'infolog': 1,
+      \ 'mail': 1,
+      \ 'rust': 1,
+      \}
+
+function LC_maps()
+    if has_key(g:LanguageClient_serverCommands, &filetype)
+        nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<cr>
+        nnoremap <buffer> <silent> jd :call LanguageClient#textDocument_definition()<CR>
+        "nnoremap <buffer> <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+    endif
+endfunction
+
+autocmd FileType * call LC_maps()

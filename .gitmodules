@@ -1,0 +1,6 @@
+[submodule "tmux/.tmux/tmux-urlview"]
+	path = tmux/.tmux/tmux-urlview
+	url = https://github.com/tmux-plugins/tmux-urlview.git
+[submodule "tmux/.tmux/tmux-fpp"]
+	path = tmux/.tmux/tmux-fpp
+	url = https://github.com/tmux-plugins/tmux-fpp

@@ -11,7 +11,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Lokaltog/vim-easymotion'
 Plug 'ervandew/supertab'
-Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --go-completer --rust-completer' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
@@ -37,6 +36,15 @@ Plug 'farmergreg/vim-lastplace'
 Plug 'chriskempson/base16-vim'
 Plug 'wincent/pinnacle'
 
+Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --go-completer --rust-completer'}
+Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh',}
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 call plug#end()
 
 "leader is space

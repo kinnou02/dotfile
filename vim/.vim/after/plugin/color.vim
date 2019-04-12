@@ -8,6 +8,9 @@ function s:CheckColorScheme()
   if !has('termguicolors')
     let g:base16colorspace=256
   endif
+  if $TERM == 'rxvt-unicode-256color'
+    let g:base16colorspace=256
+  endif
 
   let s:config_file = expand('~/.vim/.base16')
 

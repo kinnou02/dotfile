@@ -15,6 +15,9 @@ let g:projectionist_heuristics = {
 \       '*.h': {
 \           'alternate': ['{}.cpp', '{}.c'],
 \           'type': 'header'
-\       }
+\       },
+\       "*.rs": {
+\           "dispatch": "cargo check"
+\       },
 \   }
 \}
