@@ -122,13 +122,18 @@ bindkey '^Xe' edit-command-line
 export PATH="$HOME/bin:/usr/lib/ccache:/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:/usr/sbin:/usr/bin/X11:/usr/X11R6/bin:/usr/games:/sbin:/var/lib/gems/1.8/bin:/usr/local/heroku/bin"
 
 # Viewer/Editeur par defaut (pour Crontab, CVS,...)
-export VISUAL=nvim
-export EDITOR=nvim
+if [ -x $(command -v nvim) ]; then
+    export VISUAL=nvim
+    export EDITOR=nvim
+else
+    export VISUAL=vim
+    export EDITOR=vim
+fi
 export TERMINAL=urxvt
 export BROWSER=google-chrome
 umask 022
 
-if [ -e $(which most) ]; then
+if [ -x $(command -v most) ]; then
     export PAGER=most
 fi
 
@@ -200,7 +205,7 @@ then
   fi
 fi
 
-WRAPPER=$(which virtualenvwrapper.sh)
+WRAPPER=$(command -v virtualenvwrapper.sh)
 if [ -x $WRAPPER ]
 then
     export WORKON_HOME=~/.virtualenvs
@@ -215,11 +220,11 @@ fi
 
 export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
 #agent ssh!
-KEYCHAIN=$(which keychain)
+KEYCHAIN=$(command -v keychain)
 if [ -x $KEYCHAIN ]
 then
     eval $($KEYCHAIN --eval --quiet)
-elif [ -x gnome-keyring-daemon ]
+elif [ -x $(command -v gnome-keyring-daemon) ]
 then
     SSH_ENV=$HOME/.ssh/environment
     gnome-keyring-daemon -s | sed 's/^echo/#echo/' > ${SSH_ENV}
@@ -274,7 +279,7 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
-ANTIBODY=$(which antibody)
+ANTIBODY=$(command -v antibody)
 if [ -x $ANTIBODY ]
 then
     source <(antibody init)

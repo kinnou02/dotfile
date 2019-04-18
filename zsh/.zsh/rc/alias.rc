@@ -30,4 +30,6 @@ alias df='df --human-readable'
 alias du='du --human-readable'
 alias man="man"
 alias mutt="mutt -y"
-alias vim="nvim"
+if [ -x $(command -v nvim) ]; then
+    alias vim="nvim"
+fi
