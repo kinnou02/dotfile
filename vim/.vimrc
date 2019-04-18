@@ -13,7 +13,6 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'ervandew/supertab'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'w0rp/ale'
 Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'rust-lang/rust.vim'
@@ -35,15 +34,14 @@ Plug 'wincent/terminus'
 Plug 'farmergreg/vim-lastplace'
 Plug 'chriskempson/base16-vim'
 Plug 'wincent/pinnacle'
+Plug 'Shougo/echodoc.vim'
 
-Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --go-completer --rust-completer'}
-Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh',}
+  Plug 'w0rp/ale'
 if has('nvim')
+  Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh',}
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
+  Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --go-completer --rust-completer'}
 endif
 call plug#end()
 

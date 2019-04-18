@@ -122,8 +122,8 @@ bindkey '^Xe' edit-command-line
 export PATH="$HOME/bin:/usr/lib/ccache:/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:/usr/sbin:/usr/bin/X11:/usr/X11R6/bin:/usr/games:/sbin:/var/lib/gems/1.8/bin:/usr/local/heroku/bin"
 
 # Viewer/Editeur par defaut (pour Crontab, CVS,...)
-export VISUAL=vim
-export EDITOR=vim
+export VISUAL=nvim
+export EDITOR=nvim
 export TERMINAL=urxvt
 export BROWSER=google-chrome
 umask 022

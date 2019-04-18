@@ -30,3 +30,4 @@ alias df='df --human-readable'
 alias du='du --human-readable'
 alias man="man"
 alias mutt="mutt -y"
+alias vim="nvim"

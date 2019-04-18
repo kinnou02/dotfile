@@ -1,1 +1,1 @@
-nnoremap <leader>jd :YcmCompleter GoTo<CR>
+"nnoremap <leader>jd :YcmCompleter GoTo<CR>

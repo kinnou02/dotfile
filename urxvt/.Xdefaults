@@ -25,7 +25,9 @@ urxvt.perl-ext-common: default,matcher
 
  urxvt.urgentOnBell: true
 ! Taille du buffer et barre de défilement
-URxvt*saveLines: 10000
+! URxvt*saveLines: 10000
+! disable scrollback since tmux handle that
+URxvt*saveLines: 0
 URxvt*scrollBar: true
 URxvt*scrollBar_right: true
 !URxvt*scrollColor: #c2dd5a

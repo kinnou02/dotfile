@@ -30,7 +30,7 @@ bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 # kill focused window
 bindsym $mod+Shift+a kill
 
-assign [class="^URxvt$"] 2
+# assign [class="^URxvt$"] 2
 assign [class="Google-chrome"] 1
 
 workspace 1 output "DP2-2"

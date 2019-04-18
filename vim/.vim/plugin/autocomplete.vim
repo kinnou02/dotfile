@@ -1,6 +1,11 @@
 "enable neocomplete
 let g:deoplete#enable_at_startup = 1
 
+
+set cmdheight=2
+let g:echodoc#enable_at_startup = 1
+let g:echodoc#type = 'signature'
+
 " Additional UltiSnips config.
 let g:UltiSnipsSnippetsDir = $HOME . '/.vim/ultisnips'
 let g:UltiSnipsSnippetDirectories = [
@@ -24,14 +29,14 @@ let g:ycm_filetype_blacklist = {'xml': 1}
 let g:ycm_show_diagnostics_ui = 1
 
 " OmniCppComplete
-let OmniCpp_NamespaceSearch = 1
-let OmniCpp_GlobalScopeSearch = 1
-let OmniCpp_ShowAccess = 1
-let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
-let OmniCpp_MayCompleteDot = 1 " autocomplete after .
-let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
-let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
-let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+"let OmniCpp_NamespaceSearch = 1
+"let OmniCpp_GlobalScopeSearch = 1
+"let OmniCpp_ShowAccess = 1
+"let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
+"let OmniCpp_MayCompleteDot = 1 " autocomplete after .
+"let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
+"let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
+"let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 "let OmniCpp_SelectFirstItem = 1
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
@@ -44,7 +49,8 @@ let python_highlight_all=1
 let g:omni_sql_no_default_maps = 1
 
 " configure tags - add additional tags here or comment out not-used ones
-set complete-=i
+set complete-=i "disable completion from included file
+set complete-=t "disable completion from tags
 source ~/.vim/tags/tags.vim
 
 let g:python_host_prog = '/usr/bin/python'
@@ -52,28 +58,30 @@ let g:python3_host_prog = '/usr/bin/python3.6'
 
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'python': ['/usr/local/bin/pyls'],
+    \ 'cpp': ['clangd'],
+    \ 'go': ['gopls'],
     \ }
 
-"disable ycm on file managed by deoplete
-let g:ycm_filetype_blacklist = {
-      \ 'tagbar': 1,
-      \ 'notes': 1,
-      \ 'markdown': 1,
-      \ 'netrw': 1,
-      \ 'unite': 1,
-      \ 'text': 1,
-      \ 'vimwiki': 1,
-      \ 'pandoc': 1,
-      \ 'infolog': 1,
-      \ 'mail': 1,
-      \ 'rust': 1,
-      \}
+" disable completion from tags
+call deoplete#custom#source('tag', 'filetypes', [])
+"disable complete from omnicomplete
+call deoplete#custom#source('omni', 'filetypes', [])
+"reduce rank of tag complete
+call deoplete#custom#source('tag', 'rank', 9999)
+
 
 function LC_maps()
     if has_key(g:LanguageClient_serverCommands, &filetype)
         nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<cr>
-        nnoremap <buffer> <silent> jd :call LanguageClient#textDocument_definition()<CR>
-        "nnoremap <buffer> <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+        "nnoremap <buffer> <silent> jd :call LanguageClient#textDocument_definition()<CR>
+        nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
+        nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
+        nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
+        nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
+        nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
+        nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
+        nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
     endif
 endfunction
 

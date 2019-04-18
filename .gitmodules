@@ -4,3 +4,15 @@
 [submodule "tmux/.tmux/tmux-fpp"]
 	path = tmux/.tmux/tmux-fpp
 	url = https://github.com/tmux-plugins/tmux-fpp
+[submodule "tmux/.tmux/tmux-continuum"]
+	path = tmux/.tmux/tmux-continuum
+	url = https://github.com/tmux-plugins/tmux-continuum.git
+[submodule "tmux/.tmux/tmux-resurrect"]
+	path = tmux/.tmux/tmux-resurrect
+	url = https://github.com/tmux-plugins/tmux-resurrect.git
+[submodule "tmux/.tmux/tmux-copycat"]
+	path = tmux/.tmux/tmux-copycat
+	url = https://github.com/tmux-plugins/tmux-copycat
+[submodule "tmux/.tmux/tmux-yank"]
+	path = tmux/.tmux/tmux-yank
+	url = https://github.com/tmux-plugins/tmux-yank
