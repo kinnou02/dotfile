@@ -8,11 +8,12 @@ if empty(glob("~/.vim/autoload/plug.vim"))
 endif
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'ervandew/supertab'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'rust-lang/rust.vim'
@@ -32,17 +33,20 @@ Plug 'tpope/vim-dispatch'
 Plug 'wincent/loupe'
 Plug 'wincent/terminus'
 Plug 'farmergreg/vim-lastplace'
-Plug 'chriskempson/base16-vim'
+"Plug 'chriskempson/base16-vim' " not updated using a fork
+Plug 'danielwe/base16-vim'
 Plug 'wincent/pinnacle'
 Plug 'Shougo/echodoc.vim'
 Plug 'ludovicchabant/vim-gutentags'
 
-  Plug 'w0rp/ale'
+Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh',}
+Plug 'w0rp/ale'
 if has('nvim')
-  Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh',}
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
-  Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --go-completer --rust-completer'}
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
 endif
 call plug#end()
 
