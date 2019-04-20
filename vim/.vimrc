@@ -35,6 +35,7 @@ Plug 'farmergreg/vim-lastplace'
 Plug 'chriskempson/base16-vim'
 Plug 'wincent/pinnacle'
 Plug 'Shougo/echodoc.vim'
+Plug 'ludovicchabant/vim-gutentags'
 
   Plug 'w0rp/ale'
 if has('nvim')
