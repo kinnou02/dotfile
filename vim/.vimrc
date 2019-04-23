@@ -39,6 +39,7 @@ Plug 'wincent/pinnacle'
 Plug 'Shougo/echodoc.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'Yggdroot/indentLine'
 
 Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh',}
 Plug 'w0rp/ale'
