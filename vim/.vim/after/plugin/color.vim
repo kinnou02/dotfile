@@ -61,10 +61,10 @@ function s:CheckColorScheme()
     call s:RemoveBg(l:group)
   endfor
 
-  " More subtle highlighting during merge conflict resolution.
-  highlight clear DiffAdd
-  highlight clear DiffChange
-  highlight clear DiffText
+  "" More subtle highlighting during merge conflict resolution.
+  "highlight clear DiffAdd
+  "highlight clear DiffChange
+  "highlight clear DiffText
 
   let l:highlight=pinnacle#italicize('ModeMsg')
   execute 'highlight User8 ' . l:highlight

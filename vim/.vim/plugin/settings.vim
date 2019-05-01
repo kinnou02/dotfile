@@ -39,7 +39,7 @@ endif
 
 set cursorline                        " highlight current line
 highlight CursorLine term=reverse cterm=reverse "TODO
-set diffopt+=foldcolumn:0             " don't show fold column in diff view
+set diffopt+=foldcolumn:0,vertical,filler,indent-heuristic,algorithm:patience           " don't show fold column in diff view
 
 if exists('$SUDO_USER')
   set noswapfile                      " don't create root-owned files
