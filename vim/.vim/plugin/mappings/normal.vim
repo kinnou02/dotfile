@@ -34,10 +34,6 @@ nnoremap <expr> j (v:count > 5 ? "m'" . v:count : '') . 'j'
 noremap <f1> :bprev<CR>
 noremap <f2> :bnext<CR>
 
-" remap ; to : useful for us layout
-map ; :
-noremap ;; ;
-
 "on map page up et down pour des déplacement de demi page
 map <PageDown> <C-d>
 map <PageUp> <C-u>

@@ -30,11 +30,10 @@ bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 # kill focused window
 bindsym $mod+Shift+a kill
 
-# assign [class="^URxvt$"] 2
-assign [class="Google-chrome"] 1
 
 workspace 1 output "DP2-2"
 workspace 2 output "DP1-1"
+workspace 4 output "DP1-1"
 workspace 3 output "DP2-2"
 workspace 5 output "DP2-2"
 
@@ -45,6 +44,8 @@ assign [class="Spotify"] number 7
 assign [class="VirtualBox Machine"] number 5
 
 
+# assign [class="^URxvt$"] 2
+assign [class="Google-chrome"] 1
 #for_window [class="Google-chrome"] move to workspace number 1
 for_window [class="Gimp"] floating enable
 for_window [class="Keybase"] floating enable
