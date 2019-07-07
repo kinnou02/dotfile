@@ -206,7 +206,7 @@ then
 fi
 
 WRAPPER=$(command -v virtualenvwrapper.sh)
-if [ -x $WRAPPER ]
+if [ -x "$WRAPPER" ]
 then
     export WORKON_HOME=~/.virtualenvs
     mkdir -p $WORKON_HOME
@@ -221,10 +221,10 @@ fi
 export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
 #agent ssh!
 KEYCHAIN=$(command -v keychain)
-if [ -x $KEYCHAIN ]
+if [ -x "$KEYCHAIN" ]
 then
     eval $($KEYCHAIN --eval --quiet)
-elif [ -x $(command -v gnome-keyring-daemon) ]
+elif [ -x "$(command -v gnome-keyring-daemon)" ]
 then
     SSH_ENV=$HOME/.ssh/environment
     gnome-keyring-daemon -s | sed 's/^echo/#echo/' > ${SSH_ENV}
@@ -280,7 +280,7 @@ fi
 
 
 ANTIBODY=$(command -v antibody)
-if [ -x $ANTIBODY ]
+if [ -x "$ANTIBODY" ]
 then
     source <(antibody init)
     $($ANTIBODY bundle zdharma/fast-syntax-highlighting)
