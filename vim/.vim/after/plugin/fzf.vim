@@ -2,6 +2,7 @@ noremap <leader>f :Files<CR>
 noremap <leader>b :Buffers<CR>
 noremap <leader>t :Tags<CR>
 noremap <leader>l :BTags<CR>
+noremap <leader>s :Snippets<CR>
 
 " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1

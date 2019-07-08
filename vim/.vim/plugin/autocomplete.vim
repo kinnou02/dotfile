@@ -59,7 +59,7 @@ let g:python3_host_prog = '/usr/bin/python3.6'
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
     \ 'python': ['/usr/local/bin/pyls'],
-    \ 'cpp': ['clangd'],
+    \ 'cpp': ['nice', 'clangd'],
     \ 'go': ['gopls'],
     \ }
 

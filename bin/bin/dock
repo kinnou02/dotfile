@@ -1,8 +1,18 @@
 #!/bin/bash
 set -e
+VIEW=$(xrandr)
 #xrandr --output DP1-2 --auto --right-of eDP1 --primary
-xrandr --output DP2-2 --auto --right-of eDP1 --primary
-xrandr --output DP1-1 --auto --right-of DP2-2
+if $(echo $VIEW | grep -q 'DP2-2 connected') && $(echo $VIEW | grep -q 'DP1-1 connected');
+then
+    xrandr --output DP2-2 --auto --right-of eDP1 --primary
+    xrandr --output DP1-1 --auto --right-of DP2-2
+fi
+
+if $(echo $VIEW | grep -q 'DP1-2 connected') && $(echo $VIEW | grep -q 'DP2-1 connected');
+then
+    xrandr --output DP1-2 --auto --right-of eDP1 --primary
+    xrandr --output DP2-1 --auto --right-of DP1-2
+fi
 #xrandr --output eDP1  --auto
 #xrandr --output eDP1 --off
 

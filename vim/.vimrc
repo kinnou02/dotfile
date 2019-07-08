@@ -11,8 +11,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'ervandew/supertab'
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
 Plug 'itchyny/lightline.vim'
 Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-fugitive'
@@ -40,6 +38,8 @@ Plug 'Shougo/echodoc.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'Yggdroot/indentLine'
+Plug 'tpope/vim-obsession'
+Plug 'mhinz/vim-startify'
 
 Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh',}
 Plug 'w0rp/ale'

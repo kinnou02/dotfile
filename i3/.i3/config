@@ -165,6 +165,10 @@ bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5%
 #bindsym XF86MonBrightnessUp exec sudo light -A 5 # increase screen brightness
 #bindsym XF86MonBrightnessDown exec sudo light -U 5 # decrease screen brightness
 
+#launch vim anywhere
+bindsym $mod+Mod1+v exec --no-startup-id /home/kinou/.vim-anywhere/bin/run
+bindsym $mod+Shift+v exec --no-startup-id /home/kinou/.vim-anywhere/bin/run -c
+
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

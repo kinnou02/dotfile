@@ -5,7 +5,7 @@ nmap <C-e> :e#<CR>
 
 "nnoremap <Leader>q :quit<CR>
 
-"nnoremap <Leader>w :write<CR>
+nnoremap <Leader>w :update<CR>
 "nnoremap <Leader>x :xit<CR>
 
 " <Leader>zz -- Zap trailing whitespace in the current buffer.

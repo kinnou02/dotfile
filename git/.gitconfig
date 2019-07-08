@@ -21,6 +21,8 @@
     branches = branch -a
     remotes = remote -v
     forget = reset HEAD
+    co = checkout
+    ci = commit
 
 [pull]
     rebase = true
