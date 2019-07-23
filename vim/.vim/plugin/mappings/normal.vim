@@ -1,7 +1,7 @@
 " Normal mode mappings.
 
 " Toggle fold at current position.
-nnoremap <Tab> za
+"nnoremap <Tab> za
 
 " Avoid unintentional switches to Ex mode.
 nnoremap Q <nop>
