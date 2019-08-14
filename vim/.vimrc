@@ -10,7 +10,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree'
 Plug 'Lokaltog/vim-easymotion'
-Plug 'ervandew/supertab'
+"Plug 'ervandew/supertab'
 Plug 'itchyny/lightline.vim'
 Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-fugitive'
@@ -41,15 +41,9 @@ Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-obsession'
 Plug 'mhinz/vim-startify'
 
-Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh',}
 Plug 'w0rp/ale'
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" :CocInstall coc-python
 call plug#end()
 
 "leader is space
