@@ -24,7 +24,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-scripts/argtextobj.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
+"Plug 'plasticboy/vim-markdown'
 Plug 'rhysd/vim-grammarous'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-dispatch'
@@ -40,19 +40,18 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-obsession'
 Plug 'mhinz/vim-startify'
+Plug 'vimwiki/vimwiki'
 
 Plug 'w0rp/ale'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = ['coc-json', 'coc-rls', 'coc-snippets', 'coc-python', 'coc-yank']
-" managing Coc with PLug doesn't work but g:coc_global_extensions should be enough
-" Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
-" Plug 'neoclide/coc-rls', {'do': 'yarn install --frozen-lockfile'}
-" Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
-" Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
-" Plug 'neoclide/coc-yank', {'do': 'yarn install --frozen-lockfile'}
-" :CocInstall coc-python
 call plug#end()
+
+let g:vimwiki_list = [{'path': '~/Documents/vimwiki/',
+                      \ 'custom_wiki2html': 'vimwikimd2html.sh',
+                      \ 'syntax': 'markdown', 
+                      \ 'ext': '.mkdn'}]
 
 "leader is space
 let mapleader = "\<Space>"

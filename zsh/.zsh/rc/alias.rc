@@ -33,3 +33,8 @@ alias mutt="mutt -y"
 if [ -x "$(command -v nvim)" ]; then
     alias vim="nvim"
 fi
+alias g='git'
+if [ -x "$(command -v sshrc)" ]; then
+    alias ssh="sshrc"
+fi
+
