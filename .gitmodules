@@ -16,3 +16,6 @@
 [submodule "tmux/.tmux/tmux-yank"]
 	path = tmux/.tmux/tmux-yank
 	url = https://github.com/tmux-plugins/tmux-yank
+[submodule "zsh/.config/base16-shell"]
+	path = zsh/.config/base16-shell
+	url = git@github.com:chriskempson/base16-shell.git
