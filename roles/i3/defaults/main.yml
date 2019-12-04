@@ -1,0 +1,6 @@
+---
+i3_config_path: '{{ ansible_env.PWD }}/roles/i3/files/i3'
+dunst_config_path: '{{ ansible_env.PWD }}/roles/i3/files/dunstrc'
+xdefaults_config_path: '{{ ansible_env.PWD }}/roles/i3/files/Xdefaults'
+keyboard_config_path: '{{ ansible_env.PWD }}/roles/i3/files/keyboard'
+keyboard_system_path: '/etc/default/keyboard'

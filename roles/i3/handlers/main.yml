@@ -1,0 +1,4 @@
+---
+- name: i3 | reload xorg config
+  shell: udevadm trigger --subsystem-match=input --action=change
+  become: yes

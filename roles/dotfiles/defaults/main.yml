@@ -1,0 +1,17 @@
+---
+dotfile_files:
+  - bin
+  - .ctags
+  - .fonts
+  - .gvimrc
+  - .tmux.conf
+  - .tmux
+  - .vim
+  - .vimrc
+  - .zsh
+  - .zshrc
+  - .gitconfig
+  - .config/nvim
+  - .config/base16-shell
+
+dotfile_templates: []

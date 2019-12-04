@@ -1,1 +1,0 @@
-/home/kinou/.vim/plugin/term.vim
