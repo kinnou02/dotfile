@@ -10,6 +10,7 @@ dotfile_files:
   - .vimrc
   - .zsh
   - .zshrc
+  - .zshenv
   - .gitconfig
   - .config/nvim
   - .config/base16-shell
