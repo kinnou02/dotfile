@@ -5,4 +5,5 @@ roles/dotfiles/files/bin/
 /venv
 /tags*
 .mypy_cache
+ roles/dotfiles/files/.vim/plugged/
 
