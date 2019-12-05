@@ -8,8 +8,6 @@
     cache_valid_time: 3600
   become: yes
   when: ansible_os_family == "Debian"
-- name: dotfiles | symlink nvim to vim
-  file: path=~/.config/nvim src=~/.vim state=link force=yes
 
 - name: dotfiles | create backup directory
   file: path=~/.backups state=directory

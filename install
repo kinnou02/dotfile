@@ -91,7 +91,7 @@ pip install -r requirements.txt
 HOST_OS=$(uname)
 
 if [ "$HOST_OS" = 'Linux' ]; then
-  ansible-playbook -i inventory ${VERBOSE+-$(printf 'v%.0s' $(seq $VERBOSE))} ${ROLES} "${EXTRA_ARGS[@]}" --check linux.yml
+  ansible-playbook -i inventory ${VERBOSE+-$(printf 'v%.0s' $(seq $VERBOSE))} ${ROLES} "${EXTRA_ARGS[@]}" linux.yml
 else
   echo "Unknown host OS: $HOST_OS"
   exit 1
