@@ -54,4 +54,5 @@
 
 - name: dotfiles | rebuild fonts
   command:
-    fc-cache -f -v
+    make
+    chdir=~/.fonts
