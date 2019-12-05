@@ -1,9 +1,9 @@
 *.swp
 roles/dotfiles/files/.vim/tmp
-roles/dotfiles/files/.tmux/.tmux/resurrect
+roles/dotfiles/files/.tmux/resurrect
 roles/dotfiles/files/bin/
 /venv
 /tags*
 .mypy_cache
- roles/dotfiles/files/.vim/plugged/
+roles/dotfiles/files/.vim/plugged/
 

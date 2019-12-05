@@ -41,6 +41,13 @@
         force=yes
   loop: '{{dotfile_files}}'
 
+- name: dotfiles | create symlinks for sshrc
+  file: src=~/{{ item }}
+        path=~/.sshrc.d/{{ item }}
+        state=link
+        force=yes
+  loop: '{{sshrc_symlink}}'
+
 # Provide an extension point for other roles to dump .zshenv stuff into.
 - name: dotfiles | make ~/.zshenv.d
   file: path=~/.zshenv.d state=directory

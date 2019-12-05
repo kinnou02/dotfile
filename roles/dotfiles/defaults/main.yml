@@ -14,5 +14,11 @@ dotfile_files:
   - .gitconfig
   - .config/nvim
   - .config/base16-shell
+  - .sshrc
+  - .sshrc.d
+
+sshrc_symlink:
+  - .zsh
+  - .zshrc
 
 dotfile_templates: []
