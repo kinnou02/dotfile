@@ -14,6 +14,7 @@ dotfile_files:
   - .gitconfig
   - .config/nvim
   - .config/base16-shell
+  - .config/alacritty
   - .sshrc
   - .sshrc.d
 

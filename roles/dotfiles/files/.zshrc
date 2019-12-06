@@ -22,6 +22,7 @@ setopt autocd extendedglob notify
 bindkey -e
 zstyle :compinstall filename '~/.zshrc'
 fpath=(~/.zsh/completion $fpath)
+fpath=(~/.zsh_completion.d $fpath)
 
 autoload -U compinit
 compinit
@@ -119,7 +120,13 @@ bindkey '^Xe' edit-command-line
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 
 #export MAIL="/var/spool/mail/kinou/"
-export PATH="$HOME/bin:/usr/lib/ccache:/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:/usr/sbin:/usr/bin/X11:/usr/X11R6/bin:/usr/games:/sbin:/var/lib/gems/1.8/bin:/usr/local/heroku/bin"
+#export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:/usr/sbin:/usr/bin/X11:/usr/X11R6/bin:/usr/games:/sbin"
+
+PATH=$(pathmunge $PATH "/sbin" before)
+PATH=$(pathmunge $PATH "/usr/sbin" before)
+PATH=$(pathmunge $PATH "$HOME/bin" before)
+PATH=$(pathmunge $PATH "$HOME/go/bin" after)
+PATH=$(pathmunge $PATH "$HOME/.local/bin/" before)
 
 # Viewer/Editeur par defaut (pour Crontab, CVS,...)
 if [ -x $(command -v nvim) ]; then
@@ -287,3 +294,9 @@ then
     $($ANTIBODY bundle zsh-users/zsh-completions)
 fi
 source $HOME/.zsh/colors
+
+# add the previous command to pet
+function prev() {
+  PREV=$(fc -lrn | head -n 1)
+  sh -c "pet new `printf %q "$PREV"`"
+}

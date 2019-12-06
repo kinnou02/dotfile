@@ -52,6 +52,9 @@
 - name: dotfiles | make ~/.zshenv.d
   file: path=~/.zshenv.d state=directory
 
+- name: dotfiles | make ~/.zsh_completion.d
+  file: path=~/.zsh_completion.d state=directory
+
 - name: dotfiles | rebuild fonts
   command:
     make
