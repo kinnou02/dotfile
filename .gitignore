@@ -1,6 +1,9 @@
-etc/vim/mytags/*
 *.swp
-etc/vim/tags/*
-vim/.vim/tmp
-tmux/.tmux/resurrect
-bin/bin
+roles/dotfiles/files/.vim/tmp
+roles/dotfiles/files/.tmux/resurrect
+roles/dotfiles/files/bin/
+/venv
+/tags*
+.mypy_cache
+roles/dotfiles/files/.vim/plugged/
+

@@ -1,0 +1,51 @@
+---
+
+- name: misc | create temporary directory
+  tempfile:
+    state: directory
+    suffix: ansible_dep
+  register: tempdir
+
+- stat:
+    path: "{{item.target}}"
+  register: stats
+  with_items: "{{releases_to_download}}"
+
+
+- name: misc | dowload
+  unarchive:
+    src: "{{ item.1.url }}"
+    dest: "{{ tempdir.path }}"
+    remote_src: yes
+  when: not stats.results[item.0].stat.exists
+  with_indexed_items: "{{releases_to_download}}"
+
+- name: misc | move binaries
+  command: "mv {{ tempdir.path }}/{{ item.1.src }} {{item.1.target}}"
+  when: not stats.results[item.0].stat.exists
+  with_indexed_items: "{{releases_to_download}}"
+
+- name: misc | move completion
+  command: "mv {{ tempdir.path }}/{{ item.1.completion }} {{item.1.completion_target}}"
+  when: not stats.results[item.0].stat.exists and item.1.completion is defined
+  with_indexed_items: "{{releases_to_download}}"
+
+
+- name: misc | remove tempdir
+  file:
+    path: "{{ tempdir.path }}"
+    state: absent
+  when: tempdir.path is defined
+
+
+- name: misc | install node
+  snap:
+    name: node
+    channel: 10/stable
+    classic: yes
+
+- name: misc | install httpie
+  pip: executable=pip3 name=httpie extra_args="--user"
+
+- name: misc | install global NPM modules
+  npm: name=tldr global=yes

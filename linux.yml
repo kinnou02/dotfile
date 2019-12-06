@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  roles:
+    - { role: common, tags: common}
+    - { role: i3, tags: i3}
+    - { role: dotfiles, tags: dotfiles}
+    - { role: vim, tags: vim}
+    - { role: misc, tags: misc}

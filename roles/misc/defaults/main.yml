@@ -1,0 +1,54 @@
+---
+
+install_dir: ~/.local/bin
+completion_dir: ~/.zsh_completion.d
+
+fd_version: 7.4.0
+libc_type: musl
+fd_dir: fd-v{{fd_version}}-x86_64-unknown-linux-{{libc_type}}
+fd_url: https://github.com/sharkdp/fd/releases/download/v{{fd_version}}/{{fd_dir}}.tar.gz
+
+
+rg_version: 11.0.2
+rg_dir: ripgrep-{{rg_version}}-x86_64-unknown-linux-{{libc_type}}
+rg_url: https://github.com/BurntSushi/ripgrep/releases/download/{{rg_version}}/{{rg_dir}}.tar.gz
+
+
+bat_version: 0.12.1
+bat_dir: bat-v{{bat_version}}-x86_64-unknown-linux-{{libc_type}}
+bat_url: https://github.com/sharkdp/bat/releases/download/v{{bat_version}}/{{bat_dir}}.tar.gz
+
+pet_version: 0.3.6
+pet_url: https://github.com/knqyf263/pet/releases/download/v{{pet_version}}/pet_{{pet_version}}_linux_amd64.tar.gz
+
+antibody_version: 4.2.0
+antibody_url: https://github.com/getantibody/antibody/releases/download/v{{antibody_version}}/antibody_Linux_x86_64.tar.gz
+
+alacritty_version: 0.4.0
+alacritty_url: https://github.com/jwilm/alacritty/releases/download/v{{alacritty_version}}/Alacritty-v{{alacritty_version}}-ubuntu_18_04_amd64.tar.gz
+
+releases_to_download:
+  - target: "{{install_dir}}/fd"
+    url: "{{fd_url}}"
+    src: "{{fd_dir}}/fd"
+    completion: "{{fd_dir}}/autocomplete/_fd"
+    completion_target: "{{completion_dir}}/_fd"
+  - target: "{{install_dir}}/rg"
+    url: "{{rg_url}}"
+    src: "{{rg_dir}}/rg"
+    completion: "{{rg_dir}}/complete/_rg"
+    completion_target: "{{completion_dir}}/_rg"
+  - target: "{{install_dir}}/bat"
+    url: "{{bat_url}}"
+    src: "{{bat_dir}}/bat"
+  - target: "{{install_dir}}/pet"
+    url: "{{pet_url}}"
+    src: "pet"
+    completion: "misc/completions/zsh/_pet"
+    completion_target: "{{completion_dir}}/_pet"
+  - target: "{{install_dir}}/antibody"
+    url: "{{antibody_url}}"
+    src: "antibody"
+  - target: "{{install_dir}}/alacritty"
+    url: "{{alacritty_url}}"
+    src: "alacritty"
