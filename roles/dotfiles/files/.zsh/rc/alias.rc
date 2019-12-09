@@ -18,11 +18,15 @@ alias ip='ip --color'
 alias ipb='ip --color --brief'
 
 # Raccourcis pour 'ls'
-alias l="ls -alh --color=auto"
-alias ll='ls -lh'
-alias la='ls -ah'
-alias lla='ls -la'
-
+if [ -x "$(command -v nvim)" ]; then
+    alias l="exa -alH"
+    alias ll="exa -lH"
+    alias la="exa -a"
+else
+    alias l="ls -alh --color=auto"
+    alias ll="ls -lh"
+    alias la="ls -ah"
+fi
 # Quelques alias pratiques
 alias c='clear'
 alias less='less --quiet'
