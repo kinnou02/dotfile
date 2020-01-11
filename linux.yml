@@ -6,3 +6,4 @@
     - { role: dotfiles, tags: dotfiles}
     - { role: vim, tags: vim}
     - { role: misc, tags: misc}
+    - { role: syncthing, tags: syncthing}

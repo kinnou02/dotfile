@@ -1,0 +1,26 @@
+---
+- name: syncthing | install
+  snap:
+    name: syncthing
+  become: yes
+
+- name: syncthing | ensure systemd directory exist
+  file: 
+    path=~/.config/systemd/user
+    force=yes
+    state=directory
+
+- name: syncthing | copy service files
+  file:
+    src={{ service_path }}
+    path=~/.config/systemd/user/syncthing.service
+    force=yes
+    state=link
+
+- name: syncthing | enable service
+  systemd:
+    name: syncthing
+    state: started
+    enabled: yes
+    scope: user
+    daemon_reload: yes

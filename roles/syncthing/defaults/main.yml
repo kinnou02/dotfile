@@ -1,0 +1,3 @@
+---
+
+service_path: '{{ ansible_env.PWD }}/roles/syncthing/files/syncthing.service'
