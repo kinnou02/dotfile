@@ -41,11 +41,13 @@
 - name: misc | install node
   snap:
     name: node
-    channel: 10/stable
+    channel: 12/stable
     classic: yes
+  become: yes
 
 - name: misc | install httpie
   pip: executable=pip3 name=httpie extra_args="--user"
 
 - name: misc | install global NPM modules
   npm: name=tldr global=yes
+  become: yes

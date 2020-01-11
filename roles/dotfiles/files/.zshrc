@@ -117,7 +117,7 @@ autoload edit-command-line
 zle -N edit-command-line
 bindkey '^Xe' edit-command-line
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 
 #export MAIL="/var/spool/mail/kinou/"
 #export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:/usr/sbin:/usr/bin/X11:/usr/X11R6/bin:/usr/games:/sbin"
@@ -220,10 +220,10 @@ then
     source $WRAPPER
 fi
 
-if [ -e $HOME/.rvm/scripts/rvm ]
-then
-    source $HOME/.rvm/scripts/rvm
-fi
+#if [ -e $HOME/.rvm/scripts/rvm ]
+#then
+#    source $HOME/.rvm/scripts/rvm
+#fi
 
 export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
 #agent ssh!
@@ -300,3 +300,6 @@ function prev() {
   PREV=$(fc -lrn | head -n 1)
   sh -c "pet new `printf %q "$PREV"`"
 }
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

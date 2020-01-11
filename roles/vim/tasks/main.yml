@@ -1,6 +1,4 @@
 ---
-- name: vim | install neovim support via rubygems
-  gem: name=neovim user_install=yes
 
 - name: vim | install neovim support via pip2
   pip: executable=pip2 name=neovim
@@ -12,3 +10,7 @@
   npm: name={{ item }} global=yes
   loop:
     - neovim
+  become: yes
+
+- name: vim | install neovim support via rubygems
+  gem: name=neovim user_install=yes

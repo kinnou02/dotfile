@@ -18,7 +18,7 @@ alias ip='ip --color'
 alias ipb='ip --color --brief'
 
 # Raccourcis pour 'ls'
-if [ -x "$(command -v nvim)" ]; then
+if [ -x "$(command -v exa)" ]; then
     alias l="exa -alH"
     alias ll="exa -lH"
     alias la="exa -a"

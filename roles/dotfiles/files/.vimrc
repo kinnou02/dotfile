@@ -45,7 +45,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'w0rp/ale'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_global_extensions = ['coc-json', 'coc-rls', 'coc-snippets', 'coc-python', 'coc-yank']
+let g:coc_global_extensions = ['coc-json', 'coc-rls', 'coc-snippets', 'coc-python', 'coc-yank', 'coc-tsserver']
 call plug#end()
 
 let g:vimwiki_list = [{'path': '~/Documents/vimwiki/',
