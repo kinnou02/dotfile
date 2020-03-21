@@ -83,42 +83,42 @@ tabspaces: 8
 # Font configuration (changes require restart)
 font:
   # Normal (roman) font face
-  #normal:
+  normal:
     # Font family
     #
     # Default:
     #   - (macOS) Menlo
     #   - (Linux) monospace
     #   - (Windows) Consolas
-    #family: Source Code Pro
+    family: Source Code Pro
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
 
   # Bold font face
-  #bold:
+  bold:
     # Font family
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    #family: Source Code Pro
+    family: Source Code Pro
 
     # The `style` can be specified to pick a specific face.
-    #style: Bold
+    style: Bold
 
   # Italic font face
-  #italic:
+  italic:
     # Font family
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    #family: Source Code Pro
+    family: Source Code Pro
 
     # The `style` can be specified to pick a specific face.
-    #style: Italic
+    style: Italic
 
   # Point size
-  size: 7
+  size: 8
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -304,9 +304,9 @@ mouse:
     #   - (macOS) open
     #   - (Linux) xdg-open
     #   - (Windows) explorer
-    #launcher:
-    #  program: xdg-open
-    #  args: []
+    launcher:
+      program: xdg-open
+      args: []
 
     # URL modifiers
     #

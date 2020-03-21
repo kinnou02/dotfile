@@ -42,3 +42,11 @@ if [ -x "$(command -v sshrc)" ]; then
     alias ssh="sshrc"
 fi
 
+function vssh() {
+    if [ ! -e  $PWD/Vagrantfile ]; then
+        echo 'no vagrant file here'
+        return 1
+    fi
+    vagrant ssh-config > vagrant-ssh.config
+    sshrc -F vagrant-ssh.config default
+}
