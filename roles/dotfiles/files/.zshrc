@@ -110,7 +110,7 @@ unsetopt hup
 for file in $HOME/.zsh/rc/*.rc; do
 source $file
 done
-prompt adam1
+#prompt adam1
 
 
 autoload edit-command-line
@@ -158,14 +158,6 @@ bindkey "^[OH" beginning-of-line #home
 bindkey "^[OF" end-of-line #end
 # Correspondance touches-fonction
 bindkey '[2~' overwrite-mode          # Insert
-
-# Prompt couleur (la couleur n'est pas la même pour le root et
-# pour les simples utilisateurs)
-if [ "`id -u`" -eq 0 ]; then
-  export PS1="%{[36;1m%}%T %{[34m%}%n%{[33m%}@%{[37m%}%m %{[32m%}%~%{[33m%}%#%{[0m%} "
-else
-  export PS1="%{[36;1m%}%T %{[31m%}%n%{[33m%}@%{[37m%}%m %{[32m%}%~%{[33m%}%#%{[0m%} "
-fi
 
 # Prise en charge des touches [début], [fin] et autres
 typeset -A key
