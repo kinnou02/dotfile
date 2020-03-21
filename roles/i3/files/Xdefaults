@@ -2,6 +2,22 @@
 ! ~/.Xdefaults
 !
 
+#define nord0 #2E3440
+#define nord1 #3B4252
+#define nord2 #434C5E
+#define nord3 #4C566A
+#define nord4 #D8DEE9
+#define nord5 #E5E9F0
+#define nord6 #ECEFF4
+#define nord7 #8FBCBB
+#define nord8 #88C0D0
+#define nord9 #81A1C1
+#define nord10 #5E81AC
+#define nord11 #BF616A
+#define nord12 #D08770
+#define nord13 #EBCB8B
+#define nord14 #A3BE8C
+#define nord15 #B48EAD
 ! Xcursor --------------------------------------------------------------------
 
 !Xcursor*theme: insertthemehere
@@ -10,7 +26,7 @@
 ! Urxvt --------------------------------------------------------------------
 
 urxvt*depth: 32
-urxvt*background: rgba:0000/0000/0200/ffff
+urxvt*background: [100]nord0
 
 URxvt*geometry: 95x30
 urxvt.foreground: #ffffff
@@ -36,23 +52,45 @@ URxvt*scrollBar_floating: true
 URxvt*scrollstyle: plain
 
 ! Colors
-urxvt.color0: #000000
-urxvt.color1: #a40000
-urxvt.color2: #4a9a06
-urxvt.color3: #c4a000
-urxvt.color4: #204a87
-urxvt.color5: #5c3566
-urxvt.color6: #729fcf
-urxvt.color7: #eeeeec
-urxvt.color8: #000000
-urxvt.color9: #cc0000
-urxvt.color10: #73d216
-urxvt.color11: #edd409
-urxvt.color12: #3465a4
-urxvt.color13: #75507b
-urxvt.color14: #729fcf
-urxvt.color15: #ffffff
+!urxvt.color0: #000000
+!urxvt.color1: #a40000
+!urxvt.color2: #4a9a06
+!urxvt.color3: #c4a000
+!urxvt.color4: #204a87
+!urxvt.color5: #5c3566
+!urxvt.color6: #729fcf
+!urxvt.color7: #eeeeec
+!urxvt.color8: #000000
+!urxvt.color9: #cc0000
+!urxvt.color10: #73d216
+!urxvt.color11: #edd409
+!urxvt.color12: #3465a4
+!urxvt.color13: #75507b
+!urxvt.color14: #729fcf
+!urxvt.color15: #ffffff
 
+*.foreground:   nord4
+*.background:   nord0
+*.cursorColor:  nord4
+*fading: 35
+*fadeColor: nord3
+
+*.color0: nord1
+*.color1: nord11
+*.color2: nord14
+*.color3: nord13
+*.color4: nord9
+*.color5: nord15
+*.color6: nord8
+*.color7: nord5
+*.color8: nord3
+*.color9: nord11
+*.color10: nord14
+*.color11: nord13
+*.color12: nord9
+*.color13: nord15
+*.color14: nord7
+*.color15: nord6
 ! do not scroll with output
 URxvt*scrollTtyOutput: false
 
@@ -81,22 +119,6 @@ xterm*faceName: xft:Dejavu Sans Mono:pixelsiz
 e=13:antialias=true
 
 ! Colors
-xterm*color0: #000000
-xterm*color1: #a40000
-xterm*color2: #4a9a06
-xterm*color3: #c4a000
-xterm*color4: #204a87
-xterm*color5: #5c3566
-xterm*color6: #729fcf
-xterm*color7: #eeeeec
-xterm*color8: #000000
-xterm*color9: #cc0000
-xterm*color10: #73d216
-xterm*color11: #edd409
-xterm*color12: #3465a4
-xterm*color13: #75507b
-xterm*color14: #729fcf
-xterm*color15: #ffffff
 
 !! get option over to work
 URxvt.keysym.M-Left:        \033[1;5D

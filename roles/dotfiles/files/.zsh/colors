@@ -128,7 +128,6 @@ color() {
 
 function () {
   emulate -L zsh
-
   if [[ -s "$BASE16_CONFIG" ]]; then
     local SCHEME=$(head -1 "$BASE16_CONFIG")
     local BACKGROUND=$(sed -n -e '2 p' "$BASE16_CONFIG")
@@ -138,6 +137,7 @@ function () {
     color "$SCHEME"
   else
     # Default.
-    color default-dark
+    #color default-dark
+    color nord
   fi
 }

@@ -15,6 +15,12 @@
         force=yes
         state=link
 
+- name: i3 | install config file rofi
+  file: src={{ rofi_config_path }}
+        path=~/.config/rofi
+        force=yes
+        state=link
+
 - name: i3 | install config file dunst
   file: src={{ dunst_config_path }}
         path=~/.dunstrc

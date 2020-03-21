@@ -210,6 +210,18 @@ bar {
 	status_command i3status --config ~/.config/i3/status.conf
     tray_output primary
     binding_mode_indicator yes
+    colors {
+        background $base00
+        separator  $base01
+        statusline $base04
+
+# State             Border  BG      Text
+        focused_workspace   $base05 $base0D $base00
+        active_workspace    $base05 $base03 $base00
+        inactive_workspace  $base03 $base01 $base05
+        urgent_workspace    $base08 $base08 $base00
+        binding_mode        $base00 $base0A $base00
+    }
 }
 
 # auto run commands
@@ -222,6 +234,35 @@ exec --no-startup-id feh --random --bg-fill ${HOME}/Images/bg/
 exec --no-startup-id dunst -config .dunstrc
 exec --no-startup-id xautolock -time 10 -locker 'i3lock -d -c 111111'
 exec --no-startup-id shutter
+exec --no-startup-id nm-applet
 exec --no-startup-id synclient TapButton2=2 TapButton3=3
-exec --no-startup-id setxkbmap us,fr -variant colemak,oss -option  -option 'caps:nocaps' -option 'caps:ctrl_modifier' -option grp:menu_toggle -option grp_led:caps
+#exec --no-startup-id setxkbmap us,fr -variant colemak,oss -option  -option 'caps:nocaps' -option 'caps:ctrl_modifier' -option grp:menu_toggle -option grp_led:caps
 
+ 
+## Base16 Nord
+# Author: arcticicestudio
+set $base00 #2E3440
+set $base01 #3B4252
+set $base02 #434C5E
+set $base03 #4C566A
+set $base04 #D8DEE9
+set $base05 #E5E9F0
+set $base06 #ECEFF4
+set $base07 #8FBCBB
+set $base08 #88C0D0
+set $base09 #81A1C1
+set $base0A #5E81AC
+set $base0B #BF616A
+set $base0C #D08770
+set $base0D #EBCB8B
+set $base0E #A3BE8C
+set $base0F #B48EAD
+
+# Basic color configuration using the Base16 variables for windows and borders.
+# Property Name         Border  BG      Text    Indicator Child Border
+client.focused          $base05 $base08 $base00 $base08 $base08
+client.focused_inactive $base01 $base01 $base05 $base03 $base01
+client.unfocused        $base01 $base00 $base05 $base01 $base01
+client.urgent           $base0D $base0D $base00 $base0D $base0D
+client.placeholder      $base00 $base00 $base05 $base00 $base00
+client.background       $base07
