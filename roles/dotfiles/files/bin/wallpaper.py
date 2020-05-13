@@ -2,7 +2,7 @@
 
 import random, glob, os
 
-img_list = glob.glob("/home/kinou/Fonds/*")
+img_list = glob.glob("/home/kinou/Images/background/*")
 
 img = random.sample(img_list, 1)[0]
 

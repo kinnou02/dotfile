@@ -183,24 +183,20 @@ context = ctrl+shift+period
 [urgency_low]
 # IMPORTANT: colors have to be defined in quotation marks.
 # Otherwise the "#" and following would be interpreted as a comment.
-frame_color = "#3B7C87"
-foreground = "#3B7C87"
-background = "#191311"
-#background = "#2B313C"
+background = "#3b4252"
+foreground = "#eceff4"
+frame_color = "#4c566a"
 timeout = 4
 
 [urgency_normal]
-frame_color = "#5B8234"
-foreground = "#5B8234"
-background = "#191311"
-#background = "#2B313C"
+background = "#3b4252"
+foreground = "#eceff4"
 timeout = 6
 
 [urgency_critical]
-frame_color = "#B7472A"
-foreground = "#B7472A"
-background = "#191311"
-#background = "#2B313C"
+background = "#3b4252"
+foreground = "#eceff4"
+frame_color = "#bf616a"
 timeout = 8
 
 
@@ -259,20 +255,3 @@ timeout = 8
 # vim: ft=cfg
 #
 #
-frame_color = "#E5E9F0"
-separator_color = "#E5E9F0"
-
-[base16_low]
-    msg_urgency = low
-    background = "#3B4252"
-    foreground = "#4C566A"
-
-[base16_normal]
-    msg_urgency = normal
-    background = "#434C5E"
-    foreground = "#E5E9F0"
-
-[base16_critical]
-    msg_urgency = critical
-    background = "#88C0D0"
-    foreground = "#ECEFF4"

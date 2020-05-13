@@ -1,0 +1,12 @@
+sandbox_init_rvm() {
+  if [ -f /usr/share/rvm/scripts/rvm ]; then
+     source /usr/share/rvm/scripts/rvm
+  fi
+}
+
+sandbox_init_python(){
+    WRAPPER=$(command -v virtualenvwrapper.sh)
+    export WORKON_HOME=~/.virtualenvs
+    mkdir -p $WORKON_HOME
+    source $WRAPPER
+}

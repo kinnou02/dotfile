@@ -13,4 +13,7 @@ nnoremap <Leader>w :update<CR>
 "        As this one is somewhat destructive and relatively close to the
 "        oft-used <leader>a mapping, make this one a double key-stroke.
 "nnoremap <silent> <Leader>zz :call wincent#mappings#leader#zap()<CR>
+"
+" research word under cursor with rg
+nnoremap <Leader>r :Rg <C-R><C-W><CR>
 

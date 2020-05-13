@@ -2,6 +2,7 @@
     "suggest.echodocSupport": true,
     "coc.source.around.enable": true,
     "python.formatting.provider": "black",
+    "solargraph.useBundler": true,
     "languageserver": {
     "clangd": {
       "command": "clangd_niced.sh",

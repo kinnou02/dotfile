@@ -51,6 +51,8 @@ zstyle ':completion:*' use-compctl false
 
 autoload -U compinit
 compinit
+autoload bashcompinit && bashcompinit
+complete -C "$HOME/.local/bin/aws_completer" aws
 
 setopt correct
 setopt autopushd
@@ -117,7 +119,6 @@ autoload edit-command-line
 zle -N edit-command-line
 bindkey '^Xe' edit-command-line
 
-#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 
 #export MAIL="/var/spool/mail/kinou/"
 #export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:/usr/sbin:/usr/bin/X11:/usr/X11R6/bin:/usr/games:/sbin"
@@ -204,18 +205,7 @@ then
   fi
 fi
 
-WRAPPER=$(command -v virtualenvwrapper.sh)
-if [ -x "$WRAPPER" ]
-then
-    export WORKON_HOME=~/.virtualenvs
-    mkdir -p $WORKON_HOME
-    source $WRAPPER
-fi
 
-#if [ -e $HOME/.rvm/scripts/rvm ]
-#then
-#    source $HOME/.rvm/scripts/rvm
-#fi
 
 export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
 #agent ssh!
@@ -285,7 +275,7 @@ then
     $($ANTIBODY bundle zdharma/fast-syntax-highlighting)
     $($ANTIBODY bundle zsh-users/zsh-completions)
 fi
-source $HOME/.zsh/colors
+#source $HOME/.zsh/colors
 
 # add the previous command to pet
 function prev() {
@@ -293,5 +283,35 @@ function prev() {
   sh -c "pet new `printf %q "$PREV"`"
 }
 
+function pet-select() {
+  BUFFER=$(pet search --query "$LBUFFER")
+  CURSOR=$#BUFFER
+  zle redisplay
+}
+zle -N pet-select
+stty -ixon
+bindkey '^s' pet-select
+
+SANDBOXRC=~/.zsh/sandboxrc
+source ~/.zsh/sandboxd
+# RVM configuration
+#sandbox_init_rvm() {
+#  if [ -f /usr/share/rvm/scripts/rvm ]; then
+#     source /usr/share/rvm/scripts/rvm
+#  fi
+#}
+#sandbox_hook rvm rvm
+
+
+sandbox_init_python(){
+    WRAPPER=$(command -v virtualenvwrapper.sh)
+    export WORKON_HOME=~/.virtualenvs
+    mkdir -p $WORKON_HOME
+    source $WRAPPER
+}
+
+sandbox_hook python workon
+sandbox_hook python mkvirtualenv
+
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+#export PATH="$PATH:$HOME/.rvm/bin"

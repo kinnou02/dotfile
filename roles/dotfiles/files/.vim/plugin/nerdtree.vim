@@ -11,5 +11,5 @@ let g:NERDTreeCreatePrefix='silent keepalt keepjumps'
 " nodes.
 let g:NERDTreeMouseMode=2
 
-nnoremap <silent> - :silent edit <C-R>=empty(expand('%')) ? '.' : fnameescape(expand('%:p:h'))<CR><CR>
-nnoremap <C-_> :NERDTreeFind<CR>
+"nnoremap <silent> - :silent edit <C-R>=empty(expand('%')) ? '.' : fnameescape(expand('%:p:h'))<CR><CR>
+"nnoremap <C-_> :NERDTreeFind<CR>

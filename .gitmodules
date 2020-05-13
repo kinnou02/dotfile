@@ -20,3 +20,6 @@
 [submodule "roles/dotfiles/files/.tmux/tmux-continuum"]
 	path = roles/dotfiles/files/.tmux/tmux-continuum
 	url = https://github.com/tmux-plugins/tmux-continuum.git
+[submodule "roles/dotfiles/files/.tmux/nord-tmux"]
+	path = roles/dotfiles/files/.tmux/nord-tmux
+	url = https://github.com/arcticicestudio/nord-tmux

@@ -8,7 +8,6 @@ if empty(glob("~/.vim/autoload/plug.vim"))
 endif
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdtree'
 Plug 'Lokaltog/vim-easymotion'
 "Plug 'ervandew/supertab'
 Plug 'itchyny/lightline.vim'
@@ -45,6 +44,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'w0rp/ale'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'arcticicestudio/nord-vim'
 let g:coc_global_extensions = ['coc-json', 'coc-rls', 'coc-snippets', 'coc-python', 'coc-yank', 'coc-tsserver']
 call plug#end()
 

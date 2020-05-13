@@ -31,7 +31,7 @@ urxvt*background: [100]nord0
 URxvt*geometry: 95x30
 urxvt.foreground: #ffffff
 !urxvt.font: xft:Dejavu Sans Mono:pixelsize=13:antialias=true
-urxvt.font: xft:Source Code Pro:size=10:antialias=true
+urxvt.font: xft:Source Code Pro for Powerline:size=10:antialias=true
 urxvt.modifier:alt
 urxvt.urlLauncher: google-chrome
 urxvt.matcher.button: 1

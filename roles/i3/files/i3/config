@@ -9,7 +9,7 @@ set $mod Mod4
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 
-font pango:Monospace 8
+font pango:Source Code Pro for Powerline 8
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -101,7 +101,7 @@ bindsym $mod+Shift+Right move right
 #bindsym $mod+Alt+Right move workspace to output right
 
 # split in horizontal orientation
-#bindsym $mod+h split h
+bindsym $mod+b split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -206,21 +206,20 @@ bindsym $mod+r mode "resize"
 
 # i3status bar config
 bar {
-	font pango:monospace 8
-	status_command i3status --config ~/.config/i3/status.conf
+    font pango:Source Code Pro for Powerline 8
+    status_command i3status --config ~/.config/i3/status.conf
     tray_output primary
     binding_mode_indicator yes
     colors {
-        background $base00
-        separator  $base01
-        statusline $base04
 
-# State             Border  BG      Text
-        focused_workspace   $base05 $base0D $base00
-        active_workspace    $base05 $base03 $base00
-        inactive_workspace  $base03 $base01 $base05
-        urgent_workspace    $base08 $base08 $base00
-        binding_mode        $base00 $base0A $base00
+        background $nord0
+            statusline $nord8
+
+            focused_workspace  $nord3  $nord8
+            active_workspace   $nord3  $nord8
+            inactive_workspace $nord8  $nord3
+            urgent_workspace   $nord3 $nord15 
+
     }
 }
 
@@ -236,33 +235,35 @@ exec --no-startup-id xautolock -time 10 -locker 'i3lock -d -c 111111'
 exec --no-startup-id shutter
 exec --no-startup-id nm-applet
 exec --no-startup-id synclient TapButton2=2 TapButton3=3
+exec --no-startup-id i3-autodisplay
+exec --no-startup-id wallpapper.py
+#exec --no-startup-id compton --daemon
 #exec --no-startup-id setxkbmap us,fr -variant colemak,oss -option  -option 'caps:nocaps' -option 'caps:ctrl_modifier' -option grp:menu_toggle -option grp_led:caps
 
  
-## Base16 Nord
-# Author: arcticicestudio
-set $base00 #2E3440
-set $base01 #3B4252
-set $base02 #434C5E
-set $base03 #4C566A
-set $base04 #D8DEE9
-set $base05 #E5E9F0
-set $base06 #ECEFF4
-set $base07 #8FBCBB
-set $base08 #88C0D0
-set $base09 #81A1C1
-set $base0A #5E81AC
-set $base0B #BF616A
-set $base0C #D08770
-set $base0D #EBCB8B
-set $base0E #A3BE8C
-set $base0F #B48EAD
+# Nord theme colors
 
+set $nord0   #2E3440
+set $nord1   #3B4252
+set $nord2   #434C5E
+set $nord3   #4C566A
+set $nord4   #D8DEE9
+set $nord5   #E5E9F0
+set $nord6   #ECEFF4
+set $nord7   #8FBCBB
+set $nord8   #88C0D0
+set $nord9   #81A1C1
+set $nord10  #5E81AC
+set $nord11  #BF616A
+set $nord12  #D08770
+set $nord13  #EBCB8B
+set $nord14  #A3BE8C
+set $nord15  #B48EAD
 # Basic color configuration using the Base16 variables for windows and borders.
 # Property Name         Border  BG      Text    Indicator Child Border
-client.focused          $base05 $base08 $base00 $base08 $base08
-client.focused_inactive $base01 $base01 $base05 $base03 $base01
-client.unfocused        $base01 $base00 $base05 $base01 $base01
-client.urgent           $base0D $base0D $base00 $base0D $base0D
-client.placeholder      $base00 $base00 $base05 $base00 $base00
-client.background       $base07
+client.focused          $nord5 $nord8 $nord0 $nord8 $nord8
+client.focused_inactive $nord1 $nord1 $nord5 $nord3 $nord1
+client.unfocused        $nord1 $nord0 $nord5 $nord1 $nord1
+client.urgent           $nord13 $nord13 $nord0 $nord13 $nord13
+client.placeholder      $nord0 $nord0 $nord5 $nord0 $nord0
+client.background       $nord7

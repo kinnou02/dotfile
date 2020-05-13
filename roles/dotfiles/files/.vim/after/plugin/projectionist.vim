@@ -19,5 +19,9 @@ let g:projectionist_heuristics = {
 \       "*.rs": {
 \           "dispatch": "cargo check"
 \       },
+\      '*.go': {
+\           'alternate': '{}_test.go',
+\           'type': 'test'
+\       },
 \   }
 \}
