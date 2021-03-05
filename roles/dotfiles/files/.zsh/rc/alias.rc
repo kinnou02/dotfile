@@ -49,4 +49,5 @@ function vssh() {
     fi
     vagrant ssh-config > vagrant-ssh.config
     sshrc -F vagrant-ssh.config default
+
 }

@@ -16,4 +16,5 @@ nnoremap <Leader>w :update<CR>
 "
 " research word under cursor with rg
 nnoremap <Leader>r :Rg <C-R><C-W><CR>
+nnoremap <Leader>T :Tags <C-R><C-W><CR>
 

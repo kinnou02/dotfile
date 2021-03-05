@@ -58,6 +58,8 @@ for_window [class="Shutter"] floating enable
 for_window [window_role="pop-up"] floating enable
 no_focus [window_role="pop-up"]
 
+for_window [title="Focus To-Do"] floating disable
+
 # lock screen
 bindsym $mod+o exec i3lock -d -c 111111
 
@@ -235,8 +237,10 @@ exec --no-startup-id xautolock -time 10 -locker 'i3lock -d -c 111111'
 exec --no-startup-id shutter
 exec --no-startup-id nm-applet
 exec --no-startup-id synclient TapButton2=2 TapButton3=3
-exec --no-startup-id i3-autodisplay
+#exec --no-startup-id i3-autodisplay
 exec --no-startup-id wallpapper.py
+exec --no-startup-id setxkbmap -option caps:backspace
+
 #exec --no-startup-id compton --daemon
 #exec --no-startup-id setxkbmap us,fr -variant colemak,oss -option  -option 'caps:nocaps' -option 'caps:ctrl_modifier' -option grp:menu_toggle -option grp_led:caps
 
