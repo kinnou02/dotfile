@@ -315,3 +315,11 @@ sandbox_hook python mkvirtualenv
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 #export PATH="$PATH:$HOME/.rvm/bin"
+#
+
+# prioritoze directory in mv completion args
+zstyle ':completion:*' group-name ''
+compdef _gnu_generic mv
+zstyle -e :completion::complete:mv:argument-rest: list-dirs-first \
+          '(( ! ${words[(I)--target-directory=*]} )) &&
+          compset -N "-*"; reply=( $((CURRENT > 1)) )'

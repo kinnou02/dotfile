@@ -27,6 +27,8 @@ antibody_url: https://github.com/getantibody/antibody/releases/download/v{{antib
 alacritty_version: 0.4.0
 alacritty_url: https://github.com/jwilm/alacritty/releases/download/v{{alacritty_version}}/Alacritty-v{{alacritty_version}}-ubuntu_18_04_amd64.tar.gz
 
+hey_url: https://hey-release.s3.us-east-2.amazonaws.com/hey_linux_amd64
+
 releases_to_download:
   - target: "{{install_dir}}/fd"
     url: "{{fd_url}}"
@@ -52,3 +54,7 @@ releases_to_download:
   - target: "{{install_dir}}/alacritty"
     url: "{{alacritty_url}}"
     src: "alacritty"
+  - target: "{{install_dir}}/hey"
+    url: "{{hey_url}}"
+    src: "hey_linux_amd64"
+    checksum: ""

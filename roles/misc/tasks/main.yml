@@ -17,13 +17,23 @@
     src: "{{ item.1.url }}"
     dest: "{{ tempdir.path }}"
     remote_src: yes
-  when: not stats.results[item.0].stat.exists
+  when: not stats.results[item.0].stat.exists and item.1.url.endswith('gz')
+  with_indexed_items: "{{releases_to_download}}"
+
+- name: Download file
+  get_url:
+    url: "{{item.1.url}}"
+    dest: "{{ tempdir.path }}"
+    mode: '0550'
+    checksum: "{{ item.1.checksum }}"
+  when: not item.1.url.endswith('gz')
   with_indexed_items: "{{releases_to_download}}"
 
 - name: misc | move binaries
   command: "mv {{ tempdir.path }}/{{ item.1.src }} {{item.1.target}}"
   when: not stats.results[item.0].stat.exists
   with_indexed_items: "{{releases_to_download}}"
+
 
 - name: misc | move completion
   command: "mv {{ tempdir.path }}/{{ item.1.completion }} {{item.1.completion_target}}"
