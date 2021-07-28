@@ -1,0 +1,33 @@
+
+
+snippet testt "table test function"
+	func Test${1:name}(t *testing.T) {
+		tests := []struct {
+			name string
+		}{
+			{
+				name: "${2:test name}",
+			},
+		}
+
+		for _, tc := range tests {
+			tc := tc
+			t.Run(tc.name, func(t *testing.T) {
+				${0:${VISUAL}}
+			})
+		}
+	}
+
+
+snippet suite "suite test"
+	type ${1:Name}Suite struct{
+		suite.Suite
+	}
+	func (suite $1Suite) Test${2:name}() {
+		${0}
+	}
+
+	func Test$1Suite(t *testing.T) {
+		t.Parallel()
+		suite.Run(t, new($1Suite))
+	}
