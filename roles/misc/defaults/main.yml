@@ -29,6 +29,9 @@ alacritty_url: https://github.com/jwilm/alacritty/releases/download/v{{alacritty
 
 hey_url: https://hey-release.s3.us-east-2.amazonaws.com/hey_linux_amd64
 
+nvim_url: https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+
+
 releases_to_download:
   - target: "{{install_dir}}/fd"
     url: "{{fd_url}}"
@@ -57,4 +60,8 @@ releases_to_download:
   - target: "{{install_dir}}/hey"
     url: "{{hey_url}}"
     src: "hey_linux_amd64"
+    checksum: ""
+  - target: "{{install_dir}}/nvim"
+    url: "{{nvim_url}}"
+    src: "nvim.appimage"
     checksum: ""

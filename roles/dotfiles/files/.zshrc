@@ -137,7 +137,7 @@ else
     export VISUAL=vim
     export EDITOR=vim
 fi
-export TERMINAL=urxvt
+export TERMINAL=alacritty
 export BROWSER=google-chrome
 umask 022
 
