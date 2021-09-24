@@ -8,12 +8,23 @@ if empty(glob("~/.vim/autoload/plug.vim"))
 endif
 call plug#begin('~/.vim/plugged')
 
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+if has('nvim-0.6')
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+    Plug 'neovim/nvim-lspconfig'
+    "Plug 'hrsh7th/nvim-compe'
+    Plug 'nvim-lua/completion-nvim'
+    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+    Plug 'phaazon/hop.nvim'
+else
+    Plug 'junegunn/fzf.vim'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    let g:coc_global_extensions = ['coc-json', 'coc-rls', 'coc-snippets', 'coc-python', 'coc-yank', 'coc-tsserver']
+    Plug 'Lokaltog/vim-easymotion'
+endif
 
-Plug 'Lokaltog/vim-easymotion'
 "Plug 'ervandew/supertab'
 Plug 'itchyny/lightline.vim'
 Plug 'sjl/gundo.vim'
@@ -24,7 +35,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-" Plug 'junegunn/fzf.vim'
 Plug 'vim-scripts/argtextobj.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'godlygeek/tabular'
@@ -48,9 +58,7 @@ Plug 'vimwiki/vimwiki'
 
 Plug 'w0rp/ale'
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'arcticicestudio/nord-vim'
-let g:coc_global_extensions = ['coc-json', 'coc-rls', 'coc-snippets', 'coc-python', 'coc-yank', 'coc-tsserver']
 call plug#end()
 
 let g:vimwiki_list = [{'path': '~/Documents/vimwiki/',

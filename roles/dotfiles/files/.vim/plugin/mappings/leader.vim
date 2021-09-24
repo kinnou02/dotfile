@@ -18,10 +18,3 @@ nnoremap <Leader>w :update<CR>
 "nnoremap <Leader>r :Rg <C-R><C-W><CR>
 "nnoremap <Leader>T :Tags <C-R><C-W><CR>
 
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>ft <cmd>lua require('telescope.builtin').treesitter()<cr>
-nnoremap <leader>b <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>t <cmd>lua require('telescope.builtin').help_tags()<cr>
-nnoremap <leader>lt <cmd>lua require('telescope.builtin').current_buffer_tags()<cr>
-nnoremap <leader>r <cmd>lua require('telescope.builtin').grep_string()<cr>
