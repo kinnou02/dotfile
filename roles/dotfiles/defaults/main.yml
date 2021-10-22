@@ -15,6 +15,7 @@ dotfile_files:
   - .config/nvim
   - .config/base16-shell
   - .config/alacritty
+  - .config/pet
   - .sshrc
   - .sshrc.d
 

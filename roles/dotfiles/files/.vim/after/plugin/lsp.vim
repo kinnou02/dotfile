@@ -36,53 +36,50 @@ local on_attach = function(client, bufnr)
 
 end
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = { "pyright", "rust_analyzer", "tsserver", "gopls", "solargraph" }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
-    on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 150,
-    }
+-- Setup nvim-cmp.
+  local cmp = require'cmp'
 
-  }
+  cmp.setup({
+    snippet = {
+      expand = function(args)
+      vim.fn["UltiSnips#Anon"](args.body)
+      end,
+    },
+    mapping = {
+      ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<C-Space>'] = cmp.mapping.complete(),
+      ['<C-e>'] = cmp.mapping.close(),
+      ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    },
+    sources = {
+      { name = 'nvim_lsp' },
+
+      { name = 'ultisnips' },
+
+      { name = 'buffer' },
+    }
+  })
+
+  -- Setup lspconfig.
+
+  -- Use a loop to conveniently call 'setup' on multiple servers and
+  -- map buffer local keybindings when the language server attaches
+  local servers = { "pyright", "rust_analyzer", "tsserver", "gopls", "solargraph" }
+  for _, lsp in ipairs(servers) do
+    nvim_lsp[lsp].setup {
+        on_attach = on_attach,
+        flags = {
+            debounce_text_changes = 150,
+            }
+        }
+    require('lspconfig')[lsp].setup {
+        capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+        }
+
 end
 EOF
-autocmd BufEnter * lua require'completion'.on_attach()
 
-inoremap <silent><expr> <C-Space> compe#complete()
-inoremap <silent><expr> <CR>      compe#confirm('<CR>')
-inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
-
-    set completeopt=menuone,noselect
-
-    let g:compe = {}
-    let g:compe.enabled = v:true
-    let g:compe.autocomplete = v:true
-    let g:compe.debug = v:false
-    let g:compe.min_length = 1
-    let g:compe.preselect = 'enable'
-    let g:compe.throttle_time = 80
-    let g:compe.source_timeout = 200
-    let g:compe.resolve_timeout = 800
-    let g:compe.incomplete_delay = 400
-    let g:compe.max_abbr_width = 100
-    let g:compe.max_kind_width = 100
-    let g:compe.max_menu_width = 100
-    let g:compe.documentation = v:true
-
-    let g:compe.source = {}
-    let g:compe.source.path = v:true
-    let g:compe.source.buffer = v:true
-    let g:compe.source.calc = v:true
-    let g:compe.source.nvim_lsp = v:true
-    let g:compe.source.nvim_lua = v:true
-    let g:compe.source.vsnip = v:true
-    let g:compe.source.ultisnips = v:true
-    let g:compe.source.luasnip = v:true
-    let g:compe.source.emoji = v:true
+set completeopt=menuone,noselect
 
 endif

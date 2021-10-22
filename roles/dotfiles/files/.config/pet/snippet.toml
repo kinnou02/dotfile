@@ -1,0 +1,94 @@
+[[snippets]]
+  description = "decrypt databags"
+  command = "knife solo data bag show <databag=mysql_accounts> <key=core-db-rtb-staging>"
+  output = ""
+
+[[snippets]]
+  description = "dump stacktrace"
+  command = "gdb  --batch <binary> <pid> -ex \"thread apply all bt\" -ex \"quit\""
+  output = ""
+
+[[snippets]]
+  description = "paused campaigns"
+  command = "redis-cli -h redis-bidder-state-<region=us>.dsp.net0ps.com smembers pausedCampaigns "
+  output = ""
+
+[[snippets]]
+  description = "campaign details"
+  command = "redis-cli -h redis-bidder-state-<region=us>.dsp.net0ps.com hgetall campaign/<campaign=27276>/supplier/<supplier=335>"
+  output = ""
+
+[[snippets]]
+  description = "budget daily"
+  command = "redis-cli -h redis-bidder-state-<region=us>.dsp.net0ps.com smembers stopped_budget/daily/<date=2020_04_17>"
+  output = ""
+
+[[snippets]]
+  description = "budget total"
+  command = "redis-cli -h redis-bidder-state-<region=us>.dsp.net0ps.com smembers stopped_budget/total"
+  output = ""
+
+[[snippets]]
+  description = "budget client total"
+  command = "redis-cli -h redis-bidder-state-<region=us>.dsp.net0ps.com smembers stopped_budget/client_total"
+  output = ""
+
+[[snippets]]
+  description = "budget client daily"
+  command = "redis-cli -h redis-bidder-state-<region=us>.dsp.net0ps.com smembers stopped_budget/client_daily/<date=2020_04_17>"
+  output = ""
+
+[[snippets]]
+  description = "convert idfa to bidder state format"
+  command = "echo -n '<IDFA>' | shasum | sed -e 's/  *.*//' | tr -d '\\n' | md5sum"
+  output = ""
+
+[[snippets]]
+  description = "cpc value"
+  command = "redis-cli -h redis-bidder-state-<region=us>.dsp.net0ps.com mget pricingStrategy/<campaign> pricingStrategy/<campaign>/currentCpa pricingStrategy/<campaign>/currentCpc pricingStrategy/<campaign>/targetCpc "
+  output = ""
+
+[[snippets]]
+  description = "send bidrequest to bidder"
+  command = "cat $BACKENDTOOLS/bidrequests/<ssp=inneractive>/<format=banner>-<os=android>.json | jq -cr '' | http POST <ssp=inneractive>-<region=us>.dsp.adikteev.com host:<ssp=inneractive>-<region=us>.dsp.adikteev.com  content-type:application/json "
+  output = ""
+
+[[snippets]]
+  description = "campaign status in bidder sync api"
+  command = "http http://sync.api.trademob.com/v1/campaigns/<campaign=25484>/bidder_status"
+  output = ""
+
+[[snippets]]
+  description = "campaign in config-api"
+  command = "http http://config.api.trademob.com/v2/campaigns/<campaign=29930>"
+  output = ""
+
+[[snippets]]
+  description = "campaign daily reporting"
+  command = "http http://reporting.api.trademob.com/report/campaign/<campaign=29930>/status/daily"
+  output = ""
+
+[[snippets]]
+  description = "build template file from ansible config"
+  command = "ansible all \\\\n    -i \"localhost,\" \\\\n    -c local \\\\n    -m template \\\\n    -a \"src=./infrastructure/bootstrap/bootstrap/config.json.j2 dest=./test.txt\" \\\\n    --extra-vars='{\"ansible_ec2_placement_availability_zone\": \"eu-west-1a\", \"aws_region\": \"eu-west-1\"}'"
+  output = ""
+
+[[snippets]]
+  description = "compute daily markup of LineItem from reporting"
+  command = "curl http://reporting.api.trademob.com/report/line_item/<line_item=612>/status/daily | jq '{cost: .costs, client_cost: .client_costs, markup: (((.client_costs-.costs)/.costs)*100)}'"
+  output = ""
+
+[[snippets]]
+  description = "listen for http trafic"
+  command = "tcpdump -A -s 0 'tcp dst port 8080 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)' -i any"
+  output = ""
+
+[[snippets]]
+  description = "ngrep search for bid request"
+  command = "ngrep -i -Wbyline '<match=HTTP/1.1 200 OK>' '<rule=tcp port 5000>' -q"
+  output = ""
+
+[[snippets]]
+  description = "test helm chart"
+  command = "helm upgrade --install --dry-run --debug  <releaseName=crossdk-api-staging> <infraPath=$HOME/workspace/predikteev/infrastructure-platform/helm-charts>/<chart=apiv3> --values <values=infrastructure/chart/staging.yml>"
+  output = ""
