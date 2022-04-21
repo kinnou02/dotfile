@@ -1,0 +1,15 @@
+---
+- name: asdf | setup plugins
+  command: "asdf plugin add {{ item.name }} {{ item.url }} "
+  ignore_errors: yes
+  with_items: "{{plugins}}"
+
+
+- name: asdf | setup versions
+  command: "asdf install {{ item.plugin }} {{ item.version }} "
+  with_items: "{{versions}}"
+
+- name: asdf | setup global
+  command: "asdf global {{ item.plugin }} {{ item.version }} "
+  when: item.global
+  with_items: "{{versions}}"

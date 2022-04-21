@@ -51,3 +51,7 @@ function vssh() {
     sshrc -F vagrant-ssh.config default
 
 }
+
+alias k="kubectl"
+alias kns="kubens"
+alias kctx="kubectx"

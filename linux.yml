@@ -7,3 +7,4 @@
     - { role: vim, tags: vim}
     - { role: misc, tags: misc}
     - { role: syncthing, tags: syncthing}
+    - { role: asdf, tags: asdf}

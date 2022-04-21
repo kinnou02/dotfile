@@ -1,0 +1,27 @@
+---
+
+
+plugins:
+  - name: "nodejs"
+    url: "https://github.com/asdf-vm/asdf-nodejs.git"
+  - name: "terraform"
+    url: "https://github.com/asdf-c:ommunity/asdf-hashicorp.git"
+  - name: "exa"
+    url: "https://github.com/nyrst/asdf-exa.git"
+  - name: "jq"
+    url: "https://github.com/AZMCode/asdf-jq.git"
+
+
+versions:
+  - plugin: "nodejs"
+    version: "12.22.7"
+    global: true
+  - plugin: "terraform"
+    version: "latest:1.1"
+    global: true
+  - plugin: "exa"
+    version: "latest"
+    global: true
+  - plugin: "jq"
+    version: "latest"
+    global: true

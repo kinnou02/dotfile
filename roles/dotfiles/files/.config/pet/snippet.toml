@@ -92,3 +92,13 @@
   description = "test helm chart"
   command = "helm upgrade --install --dry-run --debug  <releaseName=crossdk-api-staging> <infraPath=$HOME/workspace/predikteev/infrastructure-platform/helm-charts>/<chart=apiv3> --values <values=infrastructure/chart/staging.yml>"
   output = ""
+
+[[snippets]]
+  description = "unused go method"
+  command = "staticcheck --unused.whole-program=true -- ./..."
+  output = ""
+
+[[snippets]]
+  description = "check if device id is in bidder control group"
+  command = "$BACKENDTOOLS/scripts/controlGroup.js '<idfa>' $(redis-cli -h redis-bidder-state-<region=us>.dsp.net0ps.com  hget campaign/<campaignID=38548>/supplier/<ssp=340> uplift_percent)"
+  output = ""

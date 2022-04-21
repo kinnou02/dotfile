@@ -126,8 +126,8 @@ bindkey '^Xe' edit-command-line
 PATH=$(pathmunge $PATH "/sbin" before)
 PATH=$(pathmunge $PATH "/usr/sbin" before)
 PATH=$(pathmunge $PATH "$HOME/bin" before)
-PATH=$(pathmunge $PATH "$HOME/go/bin" after)
 PATH=$(pathmunge $PATH "$HOME/.local/bin/" before)
+#PATH=$(pathmunge $PATH "$HOME/go/bin" after)
 
 # Viewer/Editeur par defaut (pour Crontab, CVS,...)
 if [ -x $(command -v nvim) ]; then
@@ -323,3 +323,10 @@ compdef _gnu_generic mv
 zstyle -e :completion::complete:mv:argument-rest: list-dirs-first \
           '(( ! ${words[(I)--target-directory=*]} )) &&
           compset -N "-*"; reply=( $((CURRENT > 1)) )'
+
+
+source $HOME/.asdf/asdf.sh
+# append completions to fpath
+fpath=(${ASDF_DIR}/completions $fpath)
+# initialise completions with ZSH's compinit
+autoload -Uz compinit && compinit

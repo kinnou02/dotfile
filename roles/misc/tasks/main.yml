@@ -48,6 +48,13 @@
   when: tempdir.path is defined
 
 
+- name: misc | install asdf
+  git:
+    repo: 'https://github.com/asdf-vm/asdf.git'
+    dest: ~/.asdf
+    version: v0.9.0
+    update: no
+
 - name: misc | install node
   snap:
     name: node

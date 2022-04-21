@@ -34,9 +34,9 @@ bindsym $mod+d exec "rofi -combi-modi window,drun -show combi -modi combi -show-
 bindsym $mod+Shift+a kill
 
 
-workspace 1 output "DP-1-3" #"DP-2" "DP-1-3"
-workspace 3 output "DP-1-3" #"DP-2" "DP-1-3"
-workspace 4 output "DP-1-3" #"DP-2" "DP-1-3 "
+workspace 1 output "HDMI-1" #"DP-1-3" #"DP-2" "DP-1-3"
+workspace 3 output "HDMI-1" #"DP-1-3" #"DP-2" "DP-1-3"
+workspace 4 output "HDMI-1" #"DP-1-3" #"DP-2" "DP-1-3 "
 #
 # spotify: no border
 for_window [class="^Spotify$"] border none, move to workspace 7
