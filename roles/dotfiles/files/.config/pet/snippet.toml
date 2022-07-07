@@ -102,3 +102,8 @@
   description = "check if device id is in bidder control group"
   command = "$BACKENDTOOLS/scripts/controlGroup.js '<idfa>' $(redis-cli -h redis-bidder-state-<region=us>.dsp.net0ps.com  hget campaign/<campaignID=38548>/supplier/<ssp=340> uplift_percent)"
   output = ""
+
+[[snippets]]
+  description = "reco on prod with test data"
+  command = "http post https://crossdk-api.adikteev.io/v1/recommendation/  os=ios app_id=1206967173 device_id=37380650-966A-40D1-B29D-390078564660 x-api-key:c8cfba802e3fbda8b8117401287813fb"
+  output = ""

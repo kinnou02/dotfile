@@ -25,3 +25,15 @@ versions:
   - plugin: "jq"
     version: "latest"
     global: true
+  - plugin: "packer"
+    version: "latest"
+    global: true
+  - plugin: "kcat"
+    version: "latest"
+    global: true
+  - plugin: "kubespy"
+    version: "latest"
+    global: true
+  - plugin: "delta"
+    version: "latest"
+    global: true
