@@ -15,8 +15,8 @@ let g:UltiSnipsJumpForwardTrigger = '<c-a>'
 let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
 
 source ~/.vim/tags/tags.vim
-let g:python_host_prog = '/usr/bin/python'
-let g:python3_host_prog = '/usr/bin/python3.6'
+"let g:python_host_prog = '/usr/bin/python'
+"let g:python3_host_prog = '/usr/bin/python3.6'
 
 if !has('nvim-0.6')
 

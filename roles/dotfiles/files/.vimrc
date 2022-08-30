@@ -14,11 +14,11 @@ if has('nvim-0.6')
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'neovim/nvim-lspconfig'
-    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make', 'branch': 'main' }
     Plug 'phaazon/hop.nvim'
-    Plug 'hrsh7th/cmp-nvim-lsp'
-    Plug 'hrsh7th/cmp-buffer'
-    Plug 'hrsh7th/nvim-cmp'
+    Plug 'hrsh7th/cmp-nvim-lsp', {'branch': 'main'}
+    Plug 'hrsh7th/cmp-buffer', {'branch': 'main'}
+    Plug 'hrsh7th/nvim-cmp', {'branch': 'main'}
 else
     Plug 'junegunn/fzf.vim'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -59,7 +59,7 @@ Plug 'vimwiki/vimwiki'
 
 Plug 'w0rp/ale'
 
-Plug 'arcticicestudio/nord-vim'
+Plug 'arcticicestudio/nord-vim', {'branch': 'main'}
 call plug#end()
 
 let g:vimwiki_list = [{'path': '~/Documents/vimwiki/',

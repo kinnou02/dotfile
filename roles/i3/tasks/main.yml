@@ -2,7 +2,7 @@
 
 - name: i3 | install packages
   apt:
-    name: [i3, dunst, i3lock, i3status, suckless-tools, shutter, xautolock, rxvt-unicode-256color, xclip, rofi]
+    name: [i3, dunst, i3lock, i3status, suckless-tools, shutter, xautolock, rxvt-unicode, xclip, rofi]
     state: present
     update_cache: yes
     cache_valid_time: 3600

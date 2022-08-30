@@ -76,9 +76,9 @@ fi
 
 if [[ ! -e $VIRTUALENV_ACTIVATE || $FORCE ]]; then
   if [[ $VERBOSE ]]; then
-    python $VIRTUALENV_SETUP $VIRTUALENV_TARGET_DIR
+    python2 $VIRTUALENV_SETUP $VIRTUALENV_TARGET_DIR
   else
-    python $VIRTUALENV_SETUP $VIRTUALENV_TARGET_DIR &> /dev/null
+    python2 $VIRTUALENV_SETUP $VIRTUALENV_TARGET_DIR &> /dev/null
   fi
 elif [ -e $VIRTUALENV_ACTIVATE ]; then
   echo "Skipping virtualenv install (already exists); use --force to override"
