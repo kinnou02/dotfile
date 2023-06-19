@@ -52,7 +52,7 @@ zstyle ':completion:*' use-compctl false
 autoload -U compinit
 compinit
 autoload bashcompinit && bashcompinit
-complete -C "$HOME/.local/bin/aws_completer" aws
+complete -C "/usr/local/bin/aws_completer" aws
 
 setopt correct
 setopt autopushd
@@ -341,3 +341,10 @@ autoload -Uz _zinit
 #
 zinit light z-shell/F-Sy-H
 zinit light zsh-users/zsh-completions
+zinit load agkozak/zsh-z
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/kinou/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/kinou/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/kinou/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/kinou/Downloads/google-cloud-sdk/completion.zsh.inc'; fi

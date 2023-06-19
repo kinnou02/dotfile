@@ -53,5 +53,5 @@ function vssh() {
 }
 
 alias k="kubectl"
-alias kns="kubens"
-alias kctx="kubectx"
+alias kns="kubectl ns"
+alias kctx="kubectl ctx"

@@ -2,22 +2,23 @@
 ! ~/.Xdefaults
 !
 
-#define nord0 #2E3440
-#define nord1 #3B4252
-#define nord2 #434C5E
-#define nord3 #4C566A
-#define nord4 #D8DEE9
-#define nord5 #E5E9F0
-#define nord6 #ECEFF4
-#define nord7 #8FBCBB
-#define nord8 #88C0D0
-#define nord9 #81A1C1
-#define nord10 #5E81AC
-#define nord11 #BF616A
-#define nord12 #D08770
-#define nord13 #EBCB8B
-#define nord14 #A3BE8C
-#define nord15 #B48EAD
+#include "/home/kinou/.nord"
+!#define nord0 #2E3440
+!#define nord1 #3B4252
+!#define nord2 #434C5E
+!#define nord3 #4C566A
+!#define nord4 #D8DEE9
+!#define nord5 #E5E9F0
+!#define nord6 #ECEFF4
+!#define nord7 #8FBCBB
+!#define nord8 #88C0D0
+!#define nord9 #81A1C1
+!#define nord10 #5E81AC
+!#define nord11 #BF616A
+!#define nord12 #D08770
+!#define nord13 #EBCB8B
+!#define nord14 #A3BE8C
+!#define nord15 #B48EAD
 ! Xcursor --------------------------------------------------------------------
 
 !Xcursor*theme: insertthemehere
@@ -31,13 +32,15 @@ urxvt*background: [100]nord0
 URxvt*geometry: 95x30
 urxvt.foreground: #ffffff
 !urxvt.font: xft:Dejavu Sans Mono:pixelsize=13:antialias=true
-urxvt.font: xft:Source Code Pro for Powerline:size=10:antialias=true
+urxvt.font: xft:Source Code Pro for Powerline:size=13:antialias=true
 urxvt.modifier:alt
 urxvt.urlLauncher: google-chrome
 urxvt.matcher.button: 1
 urxvt.perl-ext-common: default,matcher
 !urxvt.perl-ext-common: default,matcher,tabbed
 !urxvt.perl-ext-common: default,matcher,tabbedex
+URxvt.perl-ext-common:  resize-font
+
 
  urxvt.urgentOnBell: true
 ! Taille du buffer et barre de défilement

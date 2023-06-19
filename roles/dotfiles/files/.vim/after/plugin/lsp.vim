@@ -1,5 +1,7 @@
 if has('nvim-0.6')
 
+" prevent vim-go to override configuration
+let g:go_doc_keywordprg_enabled = 0
 lua << EOF
 local nvim_lsp = require('lspconfig')
 
@@ -17,7 +19,7 @@ end
 local opts = { noremap=true, silent=true }
 vim.api.nvim_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
 vim.api.nvim_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-vim.api.nvim_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+vim.api.nvim_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', { noremap=false, silent=true })
 -- vim.api.nvim_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
 -- vim.api.nvim_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
@@ -36,19 +38,20 @@ vim.api.nvim_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>"
 -- Setup nvim-cmp.
   local cmp = require'cmp'
 
+
   cmp.setup({
     snippet = {
       expand = function(args)
       vim.fn["UltiSnips#Anon"](args.body)
       end,
     },
-    mapping = {
+    mapping = cmp.mapping.preset.insert({
       ['<C-d>'] = cmp.mapping.scroll_docs(-4),
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
       ['<C-e>'] = cmp.mapping.close(),
       ['<CR>'] = cmp.mapping.confirm({ select = true }),
-    },
+    }),
     sources = {
       { name = 'nvim_lsp' },
 
@@ -80,6 +83,6 @@ EOF
 set completeopt=menuone,noselect
 
 " force usage of recent nodejs version inside vim
-let $ASDF_NODEJS_VERSION="12.22.7"
+let $ASDF_NODEJS_VERSION="18.11.0"
 
 endif

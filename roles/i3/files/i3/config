@@ -9,7 +9,7 @@ set $mod Mod4
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 
-font pango:Source Code Pro for Powerline 8
+font pango:Source Code Pro for Powerline 10
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -34,9 +34,9 @@ bindsym $mod+d exec "rofi -combi-modi window,drun -show combi -modi combi -show-
 bindsym $mod+Shift+a kill
 
 
-workspace 1 output "HDMI-1" #"DP-1-3" #"DP-2" "DP-1-3"
-workspace 3 output "HDMI-1" #"DP-1-3" #"DP-2" "DP-1-3"
-workspace 4 output "HDMI-1" #"DP-1-3" #"DP-2" "DP-1-3 "
+workspace 1 output "DP-3-1" #"HDMI-1" "DP-1-3"
+workspace 3 output "DP-3-1" #"DP-2" "DP-1-3"
+workspace 4 output "DP-3-1" #"DP-2" "DP-1-3 "
 #
 # spotify: no border
 for_window [class="^Spotify$"] border none, move to workspace 7
@@ -208,7 +208,7 @@ bindsym $mod+r mode "resize"
 
 # i3status bar config
 bar {
-    font pango:Source Code Pro for Powerline 8
+    font pango:Source Code Pro for Powerline 10
     status_command i3status --config ~/.config/i3/status.conf
     tray_output primary
     binding_mode_indicator yes

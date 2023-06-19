@@ -19,6 +19,11 @@ if has('nvim-0.6')
     Plug 'hrsh7th/cmp-nvim-lsp', {'branch': 'main'}
     Plug 'hrsh7th/cmp-buffer', {'branch': 'main'}
     Plug 'hrsh7th/nvim-cmp', {'branch': 'main'}
+
+    Plug 'dense-analysis/neural', {'branch': 'main'}
+    Plug 'MunifTanjim/nui.nvim'
+    Plug 'elpiloto/significant.nvim', {'branch': 'main'}
+
 else
     Plug 'junegunn/fzf.vim'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -56,11 +61,13 @@ Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-obsession'
 Plug 'mhinz/vim-startify'
 Plug 'vimwiki/vimwiki'
+Plug 'github/copilot.vim', {'branch': 'release'}
 
 Plug 'w0rp/ale'
 
 Plug 'arcticicestudio/nord-vim', {'branch': 'main'}
 call plug#end()
+
 
 let g:vimwiki_list = [{'path': '~/Documents/vimwiki/',
                       \ 'custom_wiki2html': 'vimwikimd2html.sh',
