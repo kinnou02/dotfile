@@ -24,6 +24,8 @@ if has('nvim-0.6')
     Plug 'MunifTanjim/nui.nvim'
     Plug 'elpiloto/significant.nvim', {'branch': 'main'}
 
+    Plug 'AckslD/nvim-neoclip.lua', {'branch': 'main'}
+
 else
     Plug 'junegunn/fzf.vim'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
